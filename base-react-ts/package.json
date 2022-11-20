@@ -21,7 +21,7 @@
     "sync:localenv": "copyfiles --flat ./env/.env.local .",
     "prestart": "copyfiles --soft --flat ./env/.env.local .",
     "start": "env-cmd -f ./.env.local react-scripts start",
-    "prebuild": "copyfiles --soft --flat \"./env/.env.local\" \"./\"",
+    "prebuild": "copyfiles --soft --flat ./env/.env.local .",
     "build": "env-cmd -f ./.env.local react-scripts build",
     "start:qa": "env-cmd -f ./env/.env.qa react-scripts start",
     "build:qa": "env-cmd -f ./env/.env.qa react-scripts build",

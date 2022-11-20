@@ -2,8 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Counter from './components/Counter/Counter';
-import { useAppDispatch, useAppSelector } from './redux/hooks';
-import { counterActions } from './redux/counter/slice';
+import { useAppDispatch, useAppSelector } from './store/hooks';
+import { counterActions } from './store/counter/slice';
 
 function App(): JSX.Element {
 	const dispatch = useAppDispatch();
