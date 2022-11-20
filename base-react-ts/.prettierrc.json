@@ -1,0 +1,15 @@
+{
+  "tabWidth": 2,
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "strict",
+  "printWidth": 120,
+  "useTabs": true,
+  "trailingComma": "all",
+  "singleAttributePerLine": true,
+  "semi": true,
+  "endOfLine": "lf",
+  "parser": "typescript"
+}

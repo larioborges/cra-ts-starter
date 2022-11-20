@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "CREATE-REACT-APP-TS-ROOT"
+		},
+		{
+			"path": "base-react-ts-ejected",
+			"name": "EJECTED"
+		},
+		{
+			"path": "base-react-ts",
+			"name": "STANDARD"
+		}
+	],
+	"settings": {
+		"editor.bracketPairColorization.enabled": true,
+		"editor.tabSize": 2,
+		"files.trimFinalNewlines": true,
+		"files.insertFinalNewline": true,
+		"files.trimTrailingWhitespace": true,
+		"editor.formatOnSave": true,
+		"terraform.experimentalFeatures.validateOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"esbenp.prettier-vscode",
+			"styled-components.vscode-styled-components",
+			"dbaeumer.vscode-eslint",
+			"gruntfuggly.todo-tree",
+			"blanu.vscode-styled-jsx",
+			"pmneo.tsimporter"
+		]
+	}
+}

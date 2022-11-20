@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "styled-components.vscode-styled-components",
+    "dbaeumer.vscode-eslint",
+    "gruntfuggly.todo-tree",
+    "blanu.vscode-styled-jsx",
+    "pmneo.tsimporter"
+  ]
+}
