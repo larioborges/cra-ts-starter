@@ -27,11 +27,11 @@ function App(): JSX.Element {
 	};
 
 	return (
-		<div className="App">
-			<header className="App-header">
+		<div className="app">
+			<header className="app-header">
 				<img
 					src={logo}
-					className="App-logo"
+					className="app-logo"
 					alt="logo"
 				/>
 				<Counter
@@ -45,7 +45,7 @@ function App(): JSX.Element {
 					Edit <code>src/App.tsx</code> and save to reload.
 				</p>
 				<a
-					className="App-link"
+					className="app-link"
 					href="https://reactjs.org"
 					target="_blank"
 					rel="noopener noreferrer"
