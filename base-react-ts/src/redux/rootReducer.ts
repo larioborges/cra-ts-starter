@@ -1,5 +1,5 @@
-import { appReducer } from './app';
-import { counterReducer } from './counter/slice';
+import { appReducer } from './app/';
+import { counterReducer } from './counter/';
 
 const rootReducer = {
 	counter: counterReducer,

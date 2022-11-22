@@ -4,6 +4,7 @@ import { withPayloadType } from 'utilities';
 import { CounterState, initialState } from './store';
 
 export const COUNTER_NAMESPACE = 'counter';
+
 export const increment = createAction(`${COUNTER_NAMESPACE}/increment`);
 export const decrement = createAction(`${COUNTER_NAMESPACE}/decrement`);
 export const incrementByAmount = createAction(`${COUNTER_NAMESPACE}/incrementByAmount`, withPayloadType<number>());
