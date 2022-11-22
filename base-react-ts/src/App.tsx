@@ -2,28 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Counter from './components/Counter/Counter';
-import { useAppDispatch, useAppSelector } from './store/hooks';
-import { counterActions } from './store/counter/slice';
+import { useAppDispatch, useAppSelector } from './redux/hooks';
+import { increment, decrement, incrementAsync, decrementAsync } from 'redux/counter';
 
 function App(): JSX.Element {
 	const dispatch = useAppDispatch();
 
 	const { value } = useAppSelector(state => state.counter);
 
-	const increment = (): void => {
-		dispatch(counterActions.increment());
+	const incrementHandler = (): void => {
+		dispatch(increment());
 	};
 
-	const decrement = (): void => {
-		dispatch(counterActions.decrement());
+	const decrementHandler = (): void => {
+		dispatch(decrement());
 	};
 
-	const incrementAsync = (): void => {
-		dispatch(counterActions.incrementAsync());
+	const incrementAsyncHandler = (): void => {
+		void dispatch(incrementAsync());
 	};
 
-	const decrementAsync = (): void => {
-		dispatch(counterActions.decrementAsync());
+	const decrementAsyncHandler = (): void => {
+		void dispatch(decrementAsync());
 	};
 
 	return (
@@ -35,10 +35,10 @@ function App(): JSX.Element {
 					alt="logo"
 				/>
 				<Counter
-					onIncrement={increment}
-					onDecrement={decrement}
-					onIncrementAsync={incrementAsync}
-					onDecrementAsync={decrementAsync}
+					onIncrement={incrementHandler}
+					onDecrement={decrementHandler}
+					onIncrementAsync={incrementAsyncHandler}
+					onDecrementAsync={decrementAsyncHandler}
 					value={value}
 				/>
 				<p>

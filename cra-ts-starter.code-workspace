@@ -2,7 +2,7 @@
 	"folders": [
 		{
 			"path": ".",
-			"name": "CREATE-REACT-APP-TS-ROOT"
+			"name": "CRA-TS-STARTER-ROOT"
 		},
 		{
 			"path": "base-react-ts-ejected",
@@ -23,7 +23,8 @@
 		"terraform.experimentalFeatures.validateOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.fixAll": true
-		}
+		},
+		"files.autoSave": "onFocusChange"
 	},
 	"extensions": {
 		"recommendations": [
