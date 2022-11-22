@@ -4,7 +4,6 @@ import { withPayloadType } from 'utilities';
 import { CounterState, initialState } from './store';
 
 export const COUNTER_NAMESPACE = 'counter';
-
 export const increment = createAction(`${COUNTER_NAMESPACE}/increment`);
 export const decrement = createAction(`${COUNTER_NAMESPACE}/decrement`);
 export const incrementByAmount = createAction(`${COUNTER_NAMESPACE}/incrementByAmount`, withPayloadType<number>());
@@ -35,14 +34,15 @@ export const decrementAsync = createAsyncThunk(
 
 export const incrementByAmountAsync = createAsyncThunk(
 	'counter/incrementAsyncByAmount',
-	async (amount: number, { fulfillWithValue, rejectWithValue, dispatch, extra, getState }) => {
-		try {
-			dispatch(incrementByAmount(3));
-			fulfillWithValue(API_STATUS.FULFILLED);
-		} catch (e: ErrorEvent | any) {
-			rejectWithValue(API_STATUS.FAILED);
-		}
-	},
+	(amount: number, { fulfillWithValue, rejectWithValue, dispatch, extra, getState }: any): void =>
+		extra.utilities.delayFunc(() => {
+			try {
+				dispatch(incrementByAmount(amount));
+				fulfillWithValue(API_STATUS.FULFILLED);
+			} catch (e: ErrorEvent | any) {
+				rejectWithValue(API_STATUS.FAILED);
+			}
+		}),
 );
 
 export const counterSlice = createSlice({
