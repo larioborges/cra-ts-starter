@@ -1,39 +1,45 @@
 {
-	"folders": [
-		{
-			"path": ".",
-			"name": "CRA-TS-STARTER-ROOT"
-		},
-		{
-			"path": "base-react-ts-ejected",
-			"name": "EJECTED"
-		},
-		{
-			"path": "base-react-ts",
-			"name": "STANDARD"
-		}
-	],
-	"settings": {
-		"editor.bracketPairColorization.enabled": true,
-		"editor.tabSize": 2,
-		"files.trimFinalNewlines": true,
-		"files.insertFinalNewline": true,
-		"files.trimTrailingWhitespace": true,
-		"editor.formatOnSave": true,
-		"terraform.experimentalFeatures.validateOnSave": true,
-		"editor.codeActionsOnSave": {
-			"source.fixAll": true
-		},
-		"files.autoSave": "onFocusChange"
-	},
-	"extensions": {
-		"recommendations": [
-			"esbenp.prettier-vscode",
-			"styled-components.vscode-styled-components",
-			"dbaeumer.vscode-eslint",
-			"gruntfuggly.todo-tree",
-			"blanu.vscode-styled-jsx",
-			"pmneo.tsimporter"
-		]
-	}
+  "folders": [
+    {
+      "path": ".",
+      "name": "TS STARTER ROOT"
+    },
+    {
+      "path": "modules/base-react-ts",
+      "name": "REACT TS"
+    },
+    {
+      "path": "modules/mock-server",
+      "name": "MOCK SERVER"
+    }
+  ],
+  "settings": {
+    "editor.bracketPairColorization.enabled": true,
+    "editor.tabSize": 2,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": true,
+    "terraform.experimentalFeatures.validateOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    },
+    "files.autoSave": "onFocusChange",
+    "prettier.bracketSpacing": true,
+    "prettier.singleQuote": true,
+    "prettier.semi": true,
+    "prettier.tabWidth": 2
+  },
+  "extensions": {
+    "recommendations": [
+      "esbenp.prettier-vscode",
+      "styled-components.vscode-styled-components",
+      "dbaeumer.vscode-eslint",
+      "gruntfuggly.todo-tree",
+      "blanu.vscode-styled-jsx",
+      "pmneo.tsimporter",
+      "davidanson.vscode-markdownlint"
+    ]
+  }
 }

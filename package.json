@@ -1,0 +1,11 @@
+{
+  "name": "lario-react-starter",
+  "packageManager": "yarn@3.3.0",
+  "workspaces": [
+    "modules/*"
+  ],
+  "scripts": {
+    "app-develop": "",
+    "app-build-serve": ""
+  }
+}
