@@ -1,6 +1,1 @@
-export enum API_STATUS {
-	INIT,
-	PENDING,
-	FULFILLED,
-	FAILED,
-}
+export const test = 'test';

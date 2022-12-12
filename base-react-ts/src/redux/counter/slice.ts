@@ -1,7 +1,8 @@
 import { createAction, createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { API_STATUS } from 'redux/api';
+import { API_STATUS, RootState, CounterState } from 'types';
 import { withPayloadType } from 'utilities';
-import { CounterState, initialState } from './store';
+import { initialState } from './store';
+import { selectCounterIsBusy } from './selectors';
 
 export const COUNTER_NAMESPACE = 'counter';
 
@@ -11,26 +12,30 @@ export const incrementByAmount = createAction(`${COUNTER_NAMESPACE}/incrementByA
 
 export const incrementAsync = createAsyncThunk(
 	'counter/incrementAsync',
-	async (_, { fulfillWithValue, rejectWithValue, dispatch, extra, getState }) => {
-		try {
-			dispatch(increment());
-			fulfillWithValue<API_STATUS>(API_STATUS.FULFILLED);
-		} catch (e: ErrorEvent | any) {
-			rejectWithValue(API_STATUS.FAILED);
-		}
-	},
+	async (_, { fulfillWithValue, rejectWithValue, dispatch, extra, getState, signal }: any) =>
+		extra.utilities.delayFunc(() => {
+			const state: RootState = getState();
+			if (!selectCounterIsBusy(state))
+				try {
+					dispatch(increment());
+					fulfillWithValue(API_STATUS.FULFILLED);
+				} catch (e: ErrorEvent | any) {
+					rejectWithValue(API_STATUS.REJECTED);
+				}
+		}),
 );
 
 export const decrementAsync = createAsyncThunk(
 	'counter/decrementAsyncementAsync',
-	async (_, { fulfillWithValue, rejectWithValue, dispatch, extra, getState }) => {
-		try {
-			dispatch(decrement());
-			fulfillWithValue<API_STATUS>(API_STATUS.FULFILLED);
-		} catch (e: ErrorEvent | any) {
-			rejectWithValue(API_STATUS.FAILED);
-		}
-	},
+	async (_, { fulfillWithValue, rejectWithValue, dispatch, extra, getState }: any) =>
+		extra.util.delayFunc(() => {
+			try {
+				dispatch(decrement());
+				fulfillWithValue(API_STATUS.FULFILLED);
+			} catch (e: ErrorEvent | any) {
+				rejectWithValue(API_STATUS.REJECTED);
+			}
+		}),
 );
 
 export const incrementByAmountAsync = createAsyncThunk(
@@ -41,7 +46,7 @@ export const incrementByAmountAsync = createAsyncThunk(
 				dispatch(incrementByAmount(amount));
 				fulfillWithValue(API_STATUS.FULFILLED);
 			} catch (e: ErrorEvent | any) {
-				rejectWithValue(API_STATUS.FAILED);
+				rejectWithValue(API_STATUS.REJECTED);
 			}
 		}),
 );
@@ -61,14 +66,14 @@ export const counterSlice = createSlice({
 			.addCase(incrementByAmount, (state: CounterState, action: PayloadAction<number>): void => {
 				if (action.payload !== 0) state.value += action.payload;
 			})
-			.addCase(incrementAsync.pending, (state: CounterState, action: PayloadAction<any>): void => {
-				state.incrementAsyncStatus = action.payload;
+			.addCase(incrementAsync.pending, (state: CounterState): void => {
+				state.counterStatus = API_STATUS.PENDING;
 			})
-			.addCase(incrementAsync.fulfilled, (state: CounterState, action: PayloadAction<any>): void => {
-				state.incrementAsyncStatus = action.payload;
+			.addCase(incrementAsync.fulfilled, (state: CounterState): void => {
+				state.counterStatus = API_STATUS.FULFILLED;
 			})
-			.addCase(incrementAsync.rejected, (state: CounterState, action: PayloadAction<any>): void => {
-				state.incrementAsyncStatus = action.payload;
+			.addCase(incrementAsync.rejected, (state: CounterState): void => {
+				state.counterStatus = API_STATUS.REJECTED;
 			});
 	},
 });

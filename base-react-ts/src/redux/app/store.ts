@@ -1,7 +1,4 @@
-export interface AppState {
-	loading: boolean;
-	authToken: string;
-}
+import { AppState } from 'types';
 
 export const initialState: AppState = {
 	loading: false,

@@ -1,6 +1,6 @@
-import { configureStore, ThunkDispatch, AnyAction } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './rootReducer';
-import * as utilities from 'utilities';
+import * as util from 'utilities';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const configureAppStore = (initialState = {}) =>
@@ -9,7 +9,7 @@ const configureAppStore = (initialState = {}) =>
 		middleware: (getDefaultMiddleware: any) =>
 			getDefaultMiddleware({
 				thunk: {
-					extraArgument: { utilities },
+					extraArgument: { util },
 				},
 				serializableCheck: true,
 				immutableCheck: true,
@@ -21,6 +21,3 @@ const configureAppStore = (initialState = {}) =>
 	});
 
 export const store = configureAppStore();
-
-export type AppDispatch = typeof store.dispatch & ThunkDispatch<RootState, null, AnyAction>;
-export type RootState = ReturnType<typeof store.getState>;
