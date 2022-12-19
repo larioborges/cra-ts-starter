@@ -11,6 +11,10 @@
     {
       "path": "modules/mock-server",
       "name": "MOCK SERVER"
+    },
+    {
+      "path": "modules/local-proxy",
+      "name": "PROXY (LOCAL)"
     }
   ],
   "settings": {
