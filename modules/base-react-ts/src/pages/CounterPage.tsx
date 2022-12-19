@@ -1,10 +1,9 @@
-import 'App.css';
+import CounterComp from 'components/Counter';
 import React from 'react';
 import { decrement, decrementAsync, increment, incrementAsync } from 'redux/counter';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import Counter from './Counter';
 
-const App: React.FC<{}> = (): JSX.Element => {
+const CounterPage: React.FC<{}> = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { value } = useAppSelector(state => state.counter);
 
@@ -25,7 +24,7 @@ const App: React.FC<{}> = (): JSX.Element => {
   };
 
   return (
-    <Counter
+    <CounterComp
       onIncrement={incrementHandler}
       onDecrement={decrementHandler}
       onIncrementAsync={incrementAsyncHandler}
@@ -35,4 +34,4 @@ const App: React.FC<{}> = (): JSX.Element => {
   );
 };
 
-export default App;
+export default CounterPage;
