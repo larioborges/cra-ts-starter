@@ -1,10 +1,3 @@
-export const delayFunc = (callback: Function, delayMs: number = 1000): void => {
-	const tt = setTimeout(() => {
-		callback();
-		cancelCallback();
-	}, delayMs);
+import ldebounce from 'lodash.debounce';
 
-	const cancelCallback = (): void => {
-		clearTimeout(tt);
-	};
-};
+export const debounce = (callback: Function, delayMs: number = 1000): any => ldebounce(() => callback(), delayMs);

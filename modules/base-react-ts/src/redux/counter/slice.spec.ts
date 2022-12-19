@@ -1,11 +1,10 @@
-import { API_STATUS } from 'redux/api';
 import { counterReducer, decrement, increment, incrementByAmount } from './slice';
-import { CounterState } from './store';
+import { CounterState, API_STATUS } from 'types';
 
 describe('counter reducer', () => {
 	const initialState: CounterState = {
 		value: 3,
-		incrementAsyncStatus: API_STATUS.INIT,
+		counterStatus: API_STATUS.INIT,
 	};
 	it('should handle initial state', () => {
 		expect(counterReducer(initialState, { type: 'unknown' })).toEqual({

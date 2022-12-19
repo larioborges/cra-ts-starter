@@ -11,6 +11,10 @@
     {
       "path": "modules/mock-server",
       "name": "MOCK SERVER"
+    },
+    {
+      "path": "modules/local-proxy",
+      "name": "PROXY (LOCAL)"
     }
   ],
   "settings": {
@@ -37,7 +41,6 @@
       "styled-components.vscode-styled-components",
       "dbaeumer.vscode-eslint",
       "gruntfuggly.todo-tree",
-      "blanu.vscode-styled-jsx",
       "pmneo.tsimporter",
       "davidanson.vscode-markdownlint"
     ]

@@ -1,11 +1,6 @@
-import { API_STATUS } from '../api';
+import { CounterState, API_STATUS } from 'types';
 
 export const initialState: CounterState = {
 	value: 0,
-	incrementAsyncStatus: API_STATUS.INIT,
+	counterStatus: API_STATUS.INIT,
 };
-
-export interface CounterState {
-	value: number;
-	incrementAsyncStatus: API_STATUS;
-}
