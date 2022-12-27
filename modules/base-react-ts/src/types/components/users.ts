@@ -1,7 +1,7 @@
 export enum GENDER {
-  FEMALE,
-  MALE,
-  OTHER,
+  Female,
+  Male,
+  Other,
 }
 
 export interface IUser {

@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import { IUser } from 'types/components/users';
 import { formatDate, formatDateTime } from 'utilities/date';
+import { GENDER } from '../../types/components/users';
 
 const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
   userMap,
@@ -47,7 +48,7 @@ const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
                   {user.name}
                 </TableCell>
                 <TableCell align="right">{user.email}</TableCell>
-                <TableCell align="right">{user.gender}</TableCell>
+                <TableCell align="right">{user.gender != null ? GENDER[user.gender] : ''}</TableCell>
                 <TableCell align="right">{formatDate(user.createdAt)}</TableCell>
                 <TableCell align="right">{formatDateTime(user.updatedAt)}</TableCell>
                 <TableCell>

@@ -49,17 +49,17 @@ const UserForm: React.FC<{ onSubmit: FormEventHandler<HTMLFormElement>; user: IU
         name="radio-buttons-group"
       >
         <FormControlLabel
-          value={GENDER.FEMALE}
+          value={GENDER.Female}
           control={<Radio />}
           label="Female"
         />
         <FormControlLabel
-          value={GENDER.MALE}
+          value={GENDER.Male}
           control={<Radio />}
           label="Male"
         />
         <FormControlLabel
-          value={GENDER.OTHER}
+          value={GENDER.Other}
           control={<Radio />}
           label="Other"
         />
