@@ -1,7 +1,15 @@
+import UserForm from 'components/Users/UserForm';
 import React from 'react';
 
 const EditUserPage: React.FC<{}> = (): JSX.Element => {
-  return <h1>Edit User</h1>;
+  // const [searchParams, setSearchParams] = useSearchParams();
+  return (
+    <UserForm
+      user={{}}
+      onSubmit={() => {}}
+      submitText="Edit User"
+    />
+  );
 };
 
 export default EditUserPage;
