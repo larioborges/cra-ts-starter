@@ -1,4 +1,3 @@
-import { Link } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -6,6 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Link from 'components/Link';
 import React from 'react';
 import { IUser } from 'types/components/users';
 import { formatDate, formatDateTime } from 'utilities/date';
@@ -52,7 +52,7 @@ const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
                 <TableCell align="right">{formatDate(user.createdAt)}</TableCell>
                 <TableCell align="right">{formatDateTime(user.updatedAt)}</TableCell>
                 <TableCell>
-                  <Link href={`edit/${userId != null ? userId : ''}`}>Edit</Link>
+                  <Link href={`users/edit/${userId != null ? userId : ''}`}>Edit</Link>
                 </TableCell>
               </TableRow>
             );
