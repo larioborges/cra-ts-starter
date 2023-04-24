@@ -5076,6 +5076,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"component-library@workspace:modules/component-library":
+  version: 0.0.0-use.local
+  resolution: "component-library@workspace:modules/component-library"
+  dependencies:
+    nodemon: ^2.0.15
+    prettier: ^2.5.0
+  languageName: unknown
+  linkType: soft
+
 "compressible@npm:~2.0.16":
   version: 2.0.18
   resolution: "compressible@npm:2.0.18"
@@ -13114,6 +13123,12 @@ __metadata:
   checksum: c469b9519de16a4bb19600205cffb39ee471a5f17b82589757ca7bd40a8d92ebb6ed9f98b5a540c5d302ccbc78f15dc03cc0280dd6e00df1335568a5d5758a5c
   languageName: node
   linkType: hard
+
+"storybook@workspace:modules/storybook":
+  version: 0.0.0-use.local
+  resolution: "storybook@workspace:modules/storybook"
+  languageName: unknown
+  linkType: soft
 
 "string-length@npm:^4.0.1":
   version: 4.0.2
