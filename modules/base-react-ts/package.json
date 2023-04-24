@@ -1,5 +1,5 @@
 {
-  "name": "react-app",
+  "name": "base-react-ts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,7 +26,7 @@
     "start:react": "react-scripts start",
     "build:react": "react-scripts build",
     "sync:localenv": "copyfiles --flat ./env/.env.local .",
-    "start": "copyfiles --flat --soft ./env/.env.local . && env-cmd -f ./.env.local yarn start:react",
+    "local:develop": "copyfiles --flat --soft ./env/.env.local . && env-cmd -f ./.env.local yarn start:react",
     "build": "copyfiles --flat --soft ./env/.env.local . && env-cmd -f ./.env.local yarn build:react",
     "start:qa": "env-cmd -f ./env/.env.qa yarn start:react",
     "build:qa": "env-cmd -f ./env/.env.qa yarn build:react",

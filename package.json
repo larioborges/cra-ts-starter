@@ -5,7 +5,7 @@
     "modules/*"
   ],
   "scripts": {
-    "app-develop": "",
+    "local:app-develop": "yarn workspaces foreach -pi --include '{local-proxy,base-react-ts}' run local:develop",
     "app-build-serve": ""
   }
 }
