@@ -1,4 +1,4 @@
 export interface AppState {
-	loading: boolean;
-	authToken: string;
+  loading: boolean;
+  authToken: string;
 }

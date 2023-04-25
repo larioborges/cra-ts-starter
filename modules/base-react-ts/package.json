@@ -38,7 +38,7 @@
     "stylelint": "stylelint src/**/*.{css,scss,less,sss}",
     "lint": "yarn eslint & yarn stylelint",
     "lint:fix": "yarn eslint --fix & yarn stylelint --write",
-    "prettier:format": "npm prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,less,sss}",
+    "prettier:format": "yarn prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,less,sss}",
     "format": "yarn lint:fix & yarn prettier:format"
   },
   "eslintConfig": {
