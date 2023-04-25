@@ -4491,9 +4491,10 @@ __metadata:
     react-redux: ^8.0.5
     react-router-dom: ^6.4.3
     react-scripts: ^5.0.1
-    react-secure-storage: ^1.0.21
     redux-logger: ^3.0.6
     redux-persist: ^6.0.0
+    redux-persist-expire: ^1.1.1
+    redux-persist-transform-encrypt: ^5.0.0
     reselect: ^4.1.7
     stylelint: ^14.15.0
     stylelint-config-prettier: ^9.0.4
@@ -9205,6 +9206,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json-stringify-safe@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "json-stringify-safe@npm:5.0.1"
+  checksum: 48ec0adad5280b8a96bb93f4563aa1667fd7a36334f79149abd42446d0989f2ddc58274b479f4819f1f00617957e6344c886c55d05a4e15ebb4ab931e4a6a8ee
+  languageName: node
+  linkType: hard
+
 "json5@npm:^1.0.1":
   version: 1.0.1
   resolution: "json5@npm:1.0.1"
@@ -9900,13 +9908,6 @@ __metadata:
   bin:
     multicast-dns: cli.js
   checksum: 00b8a57df152d4cd0297946320a94b7c3cdf75a46a2247f32f958a8927dea42958177f9b7fdae69fab2e4e033fb3416881af1f5e9055a3e1542888767139e2fb
-  languageName: node
-  linkType: hard
-
-"murmurhash-js@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "murmurhash-js@npm:1.0.0"
-  checksum: 083cea92a11bc9eb25be1446fc92eded3f49731bc1ad34fa8023afd68c234d1dd59458d70eb20e667b1383bedeeb8dfb1a16c89913b6ffe3584fd22fb598739d
   languageName: node
   linkType: hard
 
@@ -11975,16 +11976,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-secure-storage@npm:^1.0.21":
-  version: 1.0.21
-  resolution: "react-secure-storage@npm:1.0.21"
-  dependencies:
-    crypto-js: ^4.1.1
-    murmurhash-js: ^1.0.0
-  checksum: 9b867570a8432d07d6872d4eff0efdd724892f1ea4cd2205a48a93036680a164a5dc6d6483e027b38b2bdd10ded358326517cf3746515c9565c68bba33f19893
-  languageName: node
-  linkType: hard
-
 "react-side-effect@npm:^2.1.0":
   version: 2.1.2
   resolution: "react-side-effect@npm:2.1.2"
@@ -12144,6 +12135,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"redux-persist-expire@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "redux-persist-expire@npm:1.1.1"
+  dependencies:
+    redux: ^4.0.5
+    redux-persist: ^6.0.0
+  checksum: ab2364eb5393d232032209c0b723832dfa4219822b532c06f5bbb37a72be00482cd3c2c2c934675f22a7ab38496144c9ed691d175cebdb7c417b9f58d811f7ea
+  languageName: node
+  linkType: hard
+
+"redux-persist-transform-encrypt@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "redux-persist-transform-encrypt@npm:5.0.0"
+  dependencies:
+    crypto-js: ^4.1.1
+    json-stringify-safe: ^5.0.1
+  peerDependencies:
+    redux: ">3.0.0"
+    redux-persist: ^6.x.x
+  checksum: de6b34509999db444ec062441759c624df105c9bea5742d0e4732c04ffdcb9124ee58f3d23e63bfdff1d689b7875661bc39f39d2e119f5d2ab740402b7e5d926
+  languageName: node
+  linkType: hard
+
 "redux-persist@npm:^6.0.0":
   version: 6.0.0
   resolution: "redux-persist@npm:6.0.0"
@@ -12159,6 +12173,15 @@ __metadata:
   peerDependencies:
     redux: ^4
   checksum: c7f757f6c383b8ec26152c113e20087818d18ed3edf438aaad43539e9a6b77b427ade755c9595c4a163b6ad3063adf3497e5fe6a36c68884eb1f1cfb6f049a5c
+  languageName: node
+  linkType: hard
+
+"redux@npm:^4.0.5":
+  version: 4.2.1
+  resolution: "redux@npm:4.2.1"
+  dependencies:
+    "@babel/runtime": ^7.9.2
+  checksum: f63b9060c3a1d930ae775252bb6e579b42415aee7a23c4114e21a0b4ba7ec12f0ec76936c00f546893f06e139819f0e2855e0d55ebfce34ca9c026241a6950dd
   languageName: node
   linkType: hard
 
