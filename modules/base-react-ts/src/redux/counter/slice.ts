@@ -78,4 +78,4 @@ export const counterSlice = createSlice({
   },
 });
 
-export const counterReducer = counterSlice.reducer;
+export const counterSliceReducer = counterSlice.reducer;

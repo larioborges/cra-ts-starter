@@ -1,5 +1,5 @@
-import { counterReducer, decrement, increment, incrementByAmount } from './slice';
-import { CounterState, API_STATUS } from 'types';
+import { API_STATUS, CounterState } from 'types';
+import { counterSliceReducer, decrement, increment, incrementByAmount } from './slice';
 
 describe('counter reducer', () => {
   const initialState: CounterState = {
@@ -7,21 +7,21 @@ describe('counter reducer', () => {
     counterStatus: API_STATUS.INIT,
   };
   it('should handle initial state', () => {
-    expect(counterReducer(initialState, { type: 'unknown' })).toEqual({
+    expect(counterSliceReducer(initialState, { type: 'unknown' })).toEqual({
       value: 3,
       incrementAsyncStatus: API_STATUS.INIT,
     });
   });
   it('should handle increment', () => {
-    const actual = counterReducer(initialState, increment());
+    const actual = counterSliceReducer(initialState, increment());
     expect(actual.value).toEqual(4);
   });
   it('should handle decrement', () => {
-    const actual = counterReducer(initialState, decrement());
+    const actual = counterSliceReducer(initialState, decrement());
     expect(actual.value).toEqual(2);
   });
   it('should handle incrementByAmount', () => {
-    const actual = counterReducer(initialState, incrementByAmount(2));
+    const actual = counterSliceReducer(initialState, incrementByAmount(2));
     expect(actual.value).toEqual(5);
   });
 });
