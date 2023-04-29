@@ -6,9 +6,9 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import TextField from '@mui/material/TextField';
 import React, { FormEventHandler } from 'react';
-import { GENDER, IUser } from 'types/components/users';
+import { Gender, User } from 'types/components/User';
 
-const UserForm: React.FC<{ onSubmit: FormEventHandler<HTMLFormElement>; user: IUser; submitText: string }> = ({
+const UserForm: React.FC<{ onSubmit: FormEventHandler<HTMLFormElement>; user: User; submitText: string }> = ({
   onSubmit = () => {},
   submitText = 'Add User',
   user,
@@ -49,17 +49,17 @@ const UserForm: React.FC<{ onSubmit: FormEventHandler<HTMLFormElement>; user: IU
         name="radio-buttons-group"
       >
         <FormControlLabel
-          value={GENDER.Female}
+          value={Gender.FEMALE}
           control={<Radio />}
           label="Female"
         />
         <FormControlLabel
-          value={GENDER.Male}
+          value={Gender.MALE}
           control={<Radio />}
           label="Male"
         />
         <FormControlLabel
-          value={GENDER.Other}
+          value={Gender.OTHER}
           control={<Radio />}
           label="Other"
         />

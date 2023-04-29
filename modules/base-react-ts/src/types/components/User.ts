@@ -1,14 +1,14 @@
-export enum GENDER {
-  Female,
-  Male,
-  Other,
+export enum Gender {
+  FEMALE,
+  MALE,
+  OTHER,
 }
 
-export interface IUser {
+export interface User {
   id?: number;
   name?: string;
   email?: string;
-  gender?: GENDER;
+  gender?: Gender;
   createdAt?: Date;
   updatedAt?: Date;
 }

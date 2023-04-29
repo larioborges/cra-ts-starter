@@ -1,15 +1,17 @@
-import { API_STATUS, CounterState } from 'types';
+import { ApiStatus, CounterState, PERSISTED_AT_KEY } from 'types';
 import { counterSliceReducer, decrement, increment, incrementByAmount } from './slice';
 
 describe('counter reducer', () => {
   const initialState: CounterState = {
     value: 3,
-    counterStatus: API_STATUS.INIT,
+    counterStatus: ApiStatus.INIT,
+    [PERSISTED_AT_KEY]: 1000,
   };
   it('should handle initial state', () => {
     expect(counterSliceReducer(initialState, { type: 'unknown' })).toEqual({
       value: 3,
-      incrementAsyncStatus: API_STATUS.INIT,
+      incrementAsyncStatus: ApiStatus.INIT,
+      PERSISTED_AT_KEY: 1000,
     });
   });
   it('should handle increment', () => {

@@ -8,7 +8,7 @@ const persistConfig: PersistReducerConfig = {
   storageKey: COUNTER_NAMESPACE,
   // encryptionSecret: 'MY-SUPER-SECRET',
   initialState,
-  expireSeconds: 10, // TODO Lario this is for test
+  expireSeconds: 5, // TODO Lario this is for test
 };
 
 export const counterReducer = getPersistedReducer(persistConfig);

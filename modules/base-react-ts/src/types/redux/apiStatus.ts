@@ -1,4 +1,4 @@
-export enum API_STATUS {
+export enum ApiStatus {
   INIT,
   PENDING,
   FULFILLED,

@@ -1,11 +1,11 @@
-import { GENDER, IUser } from 'types/components/users';
+import { Gender, User } from 'types/components/User';
 
-export const users: IUser[] = [
+export const users: User[] = [
   {
     id: 1,
     name: 'Larry Berton',
     email: 'larry@berton.com',
-    gender: GENDER.Female,
+    gender: Gender.FEMALE,
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -13,7 +13,7 @@ export const users: IUser[] = [
     id: 2,
     name: 'Herb Mallock',
     email: 'herb@mallock.com',
-    gender: GENDER.Other,
+    gender: Gender.OTHER,
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -21,14 +21,14 @@ export const users: IUser[] = [
     id: 3,
     name: '',
     email: 'a@b.com',
-    gender: GENDER.Male,
+    gender: Gender.MALE,
     createdAt: new Date(),
     updatedAt: new Date(),
   },
 ];
 
 export const userMap = users.reduce(
-  (userMap: any, user: IUser, _) =>
+  (userMap: any, user: User, _) =>
     user.id != null
       ? {
           ...userMap,

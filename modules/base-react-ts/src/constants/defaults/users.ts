@@ -1,3 +1,3 @@
-import { IUser } from 'types/components/users';
+import { User } from 'types/components/User';
 
-export const DEFAULT_USER: IUser = {};
+export const DEFAULT_USER: User = {};

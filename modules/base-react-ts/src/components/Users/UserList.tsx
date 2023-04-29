@@ -7,15 +7,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Link from 'components/Link';
 import React from 'react';
-import { IUser } from 'types/components/users';
+import { User } from 'types/components/User';
 import { formatDate, formatDateTime } from 'utilities/date';
-import { GENDER } from '../../types/components/users';
+import { Gender } from '../../types/components/User';
 
 const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
   userMap,
   userIds,
 }: {
-  userMap: IUser[];
+  userMap: User[];
   userIds: number[];
 }): JSX.Element => {
   return (
@@ -48,7 +48,7 @@ const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
                   {user.name}
                 </TableCell>
                 <TableCell align="right">{user.email}</TableCell>
-                <TableCell align="right">{user.gender != null ? GENDER[user.gender] : ''}</TableCell>
+                <TableCell align="right">{user.gender != null ? Gender[user.gender] : ''}</TableCell>
                 <TableCell align="right">{formatDate(user.createdAt)}</TableCell>
                 <TableCell align="right">{formatDateTime(user.updatedAt)}</TableCell>
                 <TableCell>

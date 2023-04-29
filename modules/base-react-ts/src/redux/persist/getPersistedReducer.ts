@@ -3,15 +3,18 @@ import expireReducer from 'redux-persist-expire';
 import { encryptTransform } from 'redux-persist-transform-encrypt';
 import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
-import { PersistReducerConfig } from '../types/redux/persistReducerConfig';
+import { PERSISTED_AT_KEY } from 'types/redux/ExpiringPersistedState';
+import { PersistReducerConfig } from '../../types/redux/PersistReducerConfig';
 
 export const getPersistedReducer = (persistReducerConfig: PersistReducerConfig): Reducer => {
   const { reducer, storageKey, encryptionSecret, initialState = {}, expireSeconds = 600 } = persistReducerConfig;
 
+  console.log(expireSeconds);
+
   const transforms = [
     expireReducer(storageKey, {
       // (Optional) Key to be used for the time relative to which store is to be expired
-      persistedAtKey: '__persisted_at',
+      persistedAtKey: PERSISTED_AT_KEY,
       // (Required) Seconds after which store will be expired
       expireSeconds,
       // (Optional) State to be used for resetting e.g. provide initial reducer state

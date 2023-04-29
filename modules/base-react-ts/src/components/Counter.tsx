@@ -1,7 +1,7 @@
 import React from 'react';
-import { ICounterProps } from 'types';
+import { CounterProps } from 'types';
 
-const Counter: React.FC<ICounterProps> = ({
+const Counter: React.FC<CounterProps> = ({
   value,
   onIncrement,
   onDecrement,
