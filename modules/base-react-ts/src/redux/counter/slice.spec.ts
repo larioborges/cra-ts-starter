@@ -1,27 +1,29 @@
-import { counterReducer, decrement, increment, incrementByAmount } from './slice';
-import { CounterState, API_STATUS } from 'types';
+import { ApiStatus, CounterState, PERSISTED_AT_KEY } from 'types';
+import { counterSliceReducer, decrement, increment, incrementByAmount } from './slice';
 
 describe('counter reducer', () => {
-	const initialState: CounterState = {
-		value: 3,
-		counterStatus: API_STATUS.INIT,
-	};
-	it('should handle initial state', () => {
-		expect(counterReducer(initialState, { type: 'unknown' })).toEqual({
-			value: 3,
-			incrementAsyncStatus: API_STATUS.INIT,
-		});
-	});
-	it('should handle increment', () => {
-		const actual = counterReducer(initialState, increment());
-		expect(actual.value).toEqual(4);
-	});
-	it('should handle decrement', () => {
-		const actual = counterReducer(initialState, decrement());
-		expect(actual.value).toEqual(2);
-	});
-	it('should handle incrementByAmount', () => {
-		const actual = counterReducer(initialState, incrementByAmount(2));
-		expect(actual.value).toEqual(5);
-	});
+  const initialState: CounterState = {
+    value: 3,
+    counterStatus: ApiStatus.INIT,
+    [PERSISTED_AT_KEY]: 1000,
+  };
+  it('should handle initial state', () => {
+    expect(counterSliceReducer(initialState, { type: 'unknown' })).toEqual({
+      value: 3,
+      incrementAsyncStatus: ApiStatus.INIT,
+      PERSISTED_AT_KEY: 1000,
+    });
+  });
+  it('should handle increment', () => {
+    const actual = counterSliceReducer(initialState, increment());
+    expect(actual.value).toEqual(4);
+  });
+  it('should handle decrement', () => {
+    const actual = counterSliceReducer(initialState, decrement());
+    expect(actual.value).toEqual(2);
+  });
+  it('should handle incrementByAmount', () => {
+    const actual = counterSliceReducer(initialState, incrementByAmount(2));
+    expect(actual.value).toEqual(5);
+  });
 });

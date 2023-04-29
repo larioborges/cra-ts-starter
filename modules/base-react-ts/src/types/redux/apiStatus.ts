@@ -1,6 +1,6 @@
-export enum API_STATUS {
-	INIT,
-	PENDING,
-	FULFILLED,
-	REJECTED,
+export enum ApiStatus {
+  INIT,
+  PENDING,
+  FULFILLED,
+  REJECTED,
 }
