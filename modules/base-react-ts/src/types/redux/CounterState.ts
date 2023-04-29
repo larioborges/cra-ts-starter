@@ -1,4 +1,4 @@
-import { ApiStatus } from './ApiStatus2';
+import { ApiStatus } from './ApiStatus';
 import { ExpiringPersistedState } from './ExpiringPersistedState';
 
 export interface CounterState extends ExpiringPersistedState {

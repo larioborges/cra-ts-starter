@@ -4,7 +4,7 @@ import { encryptTransform } from 'redux-persist-transform-encrypt';
 import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
 import { PERSISTED_AT_KEY } from 'types/redux/ExpiringPersistedState';
-import { PersistReducerConfig } from '../../types/redux/PersistReducerConfig2';
+import { PersistReducerConfig } from '../../types/redux/PersistReducerConfig';
 
 export const getPersistedReducer = (persistReducerConfig: PersistReducerConfig): Reducer => {
   const { reducer, storageKey, encryptionSecret, initialState = {}, expireSeconds = 600 } = persistReducerConfig;
