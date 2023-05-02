@@ -1,6 +1,6 @@
 {
-  "title": "Update User Endpoint",
-  "Description": "Defines the shape of the update user endpoint's request and response.",
+  "title": "Update User Endpoint Schema",
+  "Description": "Update user endpoint's request and response object shape",
   "body": {
     "type": "object",
     "required": ["id", "name", "email", "age", "gender"],
@@ -21,7 +21,8 @@
         "maximum": 150
       },
       "gender": {
-        "type": "string"
+        "type": "string",
+        "enum": ["MALE", "FEMALE", "OTHER"]
       }
     }
   },
@@ -46,7 +47,8 @@
           "maximum": 150
         },
         "gender": {
-          "type": "string"
+          "type": "string",
+          "enum": ["MALE", "FEMALE", "OTHER"]
         },
         "createdAt": {
           "type": "string"

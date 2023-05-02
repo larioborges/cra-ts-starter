@@ -1,6 +1,6 @@
 {
-  "title": "Create User Endpoint",
-  "Description": "Defines the shape of the create user endpoint's request and response.",
+  "title": "Create User Endpoint Schema",
+  "Description": "Create user endpoint's request and response object shape",
   "body": {
     "type": "object",
     "required": ["name", "email", "age", "gender"],
@@ -18,7 +18,8 @@
         "maximum": 150
       },
       "gender": {
-        "type": "string"
+        "type": "string",
+        "enum": ["MALE", "FEMALE", "OTHER"]
       }
     }
   },
@@ -43,7 +44,8 @@
           "maximum": 150
         },
         "gender": {
-          "type": "string"
+          "type": "string",
+          "enum": ["MALE", "FEMALE", "OTHER"]
         },
         "createdAt": {
           "type": "string"

@@ -1,4 +1,4 @@
 {
-  "title": "Delete User Endpoint",
-  "Description": "Defines the shape of the delete user endpoint's request and response"
+  "title": "Delete User Endpoint Schema",
+  "Description": "Delete user endpoint's request and response object shape"
 }

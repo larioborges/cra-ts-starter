@@ -1,6 +1,6 @@
 {
-  "title": "List Users Endpoint",
-  "Description": "Defines the shape of the list (get all) users endpoint's request and response.",
+  "title": "List Users Endpoint Schema",
+  "Description": "List (get all) users endpoint's request and response object shape",
   "response": {
     "200": {
       "type": "array",
@@ -22,7 +22,8 @@
           "maximum": 150
         },
         "gender": {
-          "type": "string"
+          "type": "string",
+          "enum": ["MALE", "FEMALE", "OTHER"]
         },
         "createdAt": {
           "type": "string"

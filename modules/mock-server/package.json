@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "prettier:format": "yarn prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,less,sss,json}",
-    "develop": "yarn start:watch",
+    "local:develop": "yarn start:watch",
     "start": "node ./src/index.js",
     "start:watch": "nodemon ./src/index.js | pino-pretty",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,8 +14,9 @@
   "author": "Lario Borges",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^4.10.2",
-    "uuid": "^8.3.2"
+    "fastify": "^4.17.0",
+    "fastify-plugin": "^4.5.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@lario/prettier-config": "workspace:^",

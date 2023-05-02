@@ -5,6 +5,7 @@
     "dbaeumer.vscode-eslint",
     "gruntfuggly.todo-tree",
     "pmneo.tsimporter",
-    "davidanson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint",
+    "zainchen.json"
   ]
 }

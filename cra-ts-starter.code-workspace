@@ -5,6 +5,14 @@
       "name": "TS STARTER ROOT"
     },
     {
+      "path": "modules/component-library",
+      "name": "COMPONENT LIBRARY"
+    },
+    {
+      "path": "modules/storybook",
+      "name": "STORYBOOK"
+    },
+    {
       "path": "modules/base-react-ts",
       "name": "REACT TS"
     },
@@ -46,7 +54,9 @@
       "dbaeumer.vscode-eslint",
       "gruntfuggly.todo-tree",
       "pmneo.tsimporter",
-      "davidanson.vscode-markdownlint"
+      "davidanson.vscode-markdownlint",
+      "arcanis.vscode-zipfs",
+      "zainchen.json"
     ]
   }
 }

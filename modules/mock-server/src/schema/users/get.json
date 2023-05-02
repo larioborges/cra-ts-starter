@@ -1,4 +1,4 @@
 {
-  "title": "Get User Endpoint",
-  "Description": "Defines the shape of the get user endpoint's request and response"
+  "title": "Get User Endpoint Schema",
+  "Description": "Get user endpoint's request and response object shape"
 }

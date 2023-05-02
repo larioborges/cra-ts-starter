@@ -1,21 +1,44 @@
-// CommonJs
-const fastify = require('fastify')({
-  logger: true,
-});
+const Fastify = require('fastify');
+const uuid = require('uuid').v4;
+const addDecorators = require('./decorators/addDecorators');
+const addHooks = require('./hooks/addHooks');
+const registerPlugins = require('./plugins');
 
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' };
-});
+const loggerConfig = require('./loggerConfig');
 
-/**
- * Run the server!
- */
-const start = async () => {
-  try {
-    await fastify.listen({ port: 4000 });
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
+loggerConfig.transport = {
+  target: 'pino-pretty',
+  options: {
+      colorize: true,
+      destination: 1,
+  },
 };
-start();
+
+const main = async () => {
+  const fastify = Fastify({
+      genReqId() {
+          return uuid();
+      },
+      logger: loggerConfig,
+  });
+
+  addDecorators(fastify);
+  addHooks(fastify);
+
+  fastify.register(registerPlugins);
+
+  fastify.listen(4000, (err, address) => {
+      if (err) {
+          fastify.log.fatal(err);
+          throw 'Could not start up server';
+      }
+      fastify.log.info(`Server listening at ${address}`);
+  });
+}
+
+try {
+  main();
+} catch(err) {
+  console.log(err);
+  process.exi(1);
+};

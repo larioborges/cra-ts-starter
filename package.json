@@ -5,7 +5,7 @@
     "modules/*"
   ],
   "scripts": {
-    "local:app-develop": "yarn workspaces foreach -pi --include '{@lario/local-proxy,@lario/base-react-ts}' run local:develop",
+    "local:app-develop": "yarn workspaces foreach -pi --include '{@lario/local-proxy,@lario/base-react-ts,@lario/mock-server}' run local:develop",
     "prettier:format": "yarn workspaces foreach -pi run prettier:format",
     "app-build-serve": ""
   }
