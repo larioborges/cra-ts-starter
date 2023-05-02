@@ -5,7 +5,6 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "editor.formatOnSave": true,
-  "terraform.experimentalFeatures.validateOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   }

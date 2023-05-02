@@ -15,6 +15,10 @@
     {
       "path": "modules/local-proxy",
       "name": "PROXY (LOCAL)"
+    },
+    {
+      "path": "modules/prettier-config",
+      "name": "PRETTIER CONFIG"
     }
   ],
   "settings": {

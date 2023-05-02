@@ -1,0 +1,45 @@
+{
+  "title": "List Users Endpoint",
+  "Description": "Defines the shape of the list (get all) users endpoint's request and response.",
+  "response": {
+    "200": {
+      "type": "array",
+      "required": ["id", "name", "email", "age", "gender", "createdAt", "updatedAt"],
+      "items": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "age": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 150
+        },
+        "gender": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "500": {
+    "type": "object",
+    "required": ["errorMsg"],
+    "properties": {
+      "errorMsg": {
+        "type": "string"
+      }
+    }
+  }
+}

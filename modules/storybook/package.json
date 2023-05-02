@@ -1,17 +1,22 @@
 {
-    "name": "storybook",
-    "version": "1.0.0",
-    "private": true,
-    "description": "Storybook react component design library",
-    "author": "Lario Borges",
-    "license": "UNLICENSED",
-    "main": "src/index.js",
-    "engines": {
-        "node": ">=16.0.0"
-    },
-    "packageManager": "yarn@3.1.1",
-    "scripts": {
-        "build": ""
-    },
-    "prettier": "@lario/prettier-config"
+  "name": "@lario/storybook",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Storybook react component design library",
+  "author": "Lario Borges",
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "prettier:format": "yarn prettier --write src/**/*.{js,jsx,ts,tsx,css,scss,less,sss,json}",
+    "build": ""
+  },
+  "devDependencies": {
+    "@lario/prettier-config": "workspace:^",
+    "prettier": "^2.3.2"
+  },
+  "prettier": "@lario/prettier-config"
 }

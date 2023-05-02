@@ -2298,6 +2298,117 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lario/base-react-ts@workspace:modules/base-react-ts":
+  version: 0.0.0-use.local
+  resolution: "@lario/base-react-ts@workspace:modules/base-react-ts"
+  dependencies:
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@lario/prettier-config": "workspace:^"
+    "@mui/material": ^5.11.1
+    "@redux-devtools/core": ^3.13.1
+    "@reduxjs/toolkit": ^1.9.0
+    "@testing-library/jest-dom": ^5.16.5
+    "@testing-library/react": ^13.4.0
+    "@testing-library/user-event": ^14.4.3
+    "@types/jest": ^29.2.3
+    "@types/lodash.debounce": ^4.0.7
+    "@types/node": ^18.11.9
+    "@types/react": ^18.0.25
+    "@types/react-dom": ^18.0.9
+    "@types/react-helmet": ^6.1.6
+    "@typescript-eslint/eslint-plugin": ^5.43.0
+    copyfiles: ^2.4.1
+    date-fns: ^2.29.3
+    env-cmd: ^10.1.0
+    eslint: ^8.28.0
+    eslint-config-prettier: ^8.5.0
+    eslint-config-react-app: ^7.0.1
+    eslint-config-standard-with-typescript: ^23.0.0
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-n: ^15.5.1
+    eslint-plugin-promise: ^6.1.1
+    eslint-plugin-react: ^7.31.11
+    lodash.debounce: ^4.0.8
+    prettier: ^2.7.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-helmet: ^6.1.0
+    react-redux: ^8.0.5
+    react-router-dom: ^6.4.3
+    react-scripts: ^5.0.1
+    redux-logger: ^3.0.6
+    redux-persist: ^6.0.0
+    redux-persist-expire: ^1.1.1
+    redux-persist-transform-encrypt: ^5.0.0
+    reselect: ^4.1.7
+    stylelint: ^14.15.0
+    stylelint-config-prettier: ^9.0.4
+    stylelint-config-standard: ^29.0.0
+    typescript: ^4.9.3
+    web-vitals: ^3.1.0
+  languageName: unknown
+  linkType: soft
+
+"@lario/component-library@workspace:modules/component-library":
+  version: 0.0.0-use.local
+  resolution: "@lario/component-library@workspace:modules/component-library"
+  dependencies:
+    "@lario/prettier-config": "workspace:^"
+    nodemon: ^2.0.15
+    prettier: ^2.5.0
+  languageName: unknown
+  linkType: soft
+
+"@lario/local-proxy@workspace:modules/local-proxy":
+  version: 0.0.0-use.local
+  resolution: "@lario/local-proxy@workspace:modules/local-proxy"
+  dependencies:
+    "@lario/prettier-config": "workspace:^"
+    cross-env: ^7.0.3
+    express: ^4.17.2
+    http-proxy-middleware: ^2.0.6
+    nodemon: ^2.0.15
+    prettier: ^2.5.0
+  languageName: unknown
+  linkType: soft
+
+"@lario/mock-server@workspace:modules/mock-server":
+  version: 0.0.0-use.local
+  resolution: "@lario/mock-server@workspace:modules/mock-server"
+  dependencies:
+    "@lario/prettier-config": "workspace:^"
+    fastify: ^4.10.2
+    nodemon: ^2.0.15
+    pino-pretty: ^7.3.0
+    prettier: ^2.3.2
+    uuid: ^8.3.2
+  languageName: unknown
+  linkType: soft
+
+"@lario/prettier-config@workspace:^, @lario/prettier-config@workspace:modules/prettier-config":
+  version: 0.0.0-use.local
+  resolution: "@lario/prettier-config@workspace:modules/prettier-config"
+  dependencies:
+    prettier: ^2.3.2
+  languageName: unknown
+  linkType: soft
+
+"@lario/react-starter@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@lario/react-starter@workspace:."
+  languageName: unknown
+  linkType: soft
+
+"@lario/storybook@workspace:modules/storybook":
+  version: 0.0.0-use.local
+  resolution: "@lario/storybook@workspace:modules/storybook"
+  dependencies:
+    "@lario/prettier-config": "workspace:^"
+    prettier: ^2.3.2
+  languageName: unknown
+  linkType: soft
+
 "@leichtgewicht/ip-codec@npm:^2.0.1":
   version: 2.0.4
   resolution: "@leichtgewicht/ip-codec@npm:2.0.4"
@@ -2929,13 +3040,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/recommended@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@tsconfig/recommended@npm:1.0.1"
-  checksum: 5f781e6a26277ee86dd0f1d575d18133627908ddf7c78acdcab0e40d0b7f21f4e1462eb8f98b74cda1d05d15fb3629ceea4c622ee031d62e31e7a99281c49294
-  languageName: node
-  linkType: hard
-
 "@types/aria-query@npm:^4.2.0":
   version: 4.2.2
   resolution: "@types/aria-query@npm:4.2.2"
@@ -3204,13 +3308,6 @@ __metadata:
   version: 18.11.9
   resolution: "@types/node@npm:18.11.9"
   checksum: cc0aae109e9b7adefc32eecb838d6fad931663bb06484b5e9cbbbf74865c721b03d16fd8d74ad90e31dbe093d956a7c2c306ba5429ba0c00f3f7505103d7a496
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.11.15":
-  version: 18.11.15
-  resolution: "@types/node@npm:18.11.15"
-  checksum: cae8692a5cee0316f93ee0342237eb921f70c51afb37c661c711a925a4642654ae7e404c5a80899d481c0cfaff3a6891ef04bacd330a2e72734192bfc91dc2d8
   languageName: node
   linkType: hard
 
@@ -4051,6 +4148,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"args@npm:^5.0.1":
+  version: 5.0.3
+  resolution: "args@npm:5.0.3"
+  dependencies:
+    camelcase: 5.0.0
+    chalk: 2.4.2
+    leven: 2.1.0
+    mri: 1.1.4
+  checksum: ac39e656090f9364d7a2a42216a572dfe36d3e4d16d87ca4c1c9552a1c325dc222b642124cb96cdeeafb46662922910191f5aa12142cc4ca117b6d85454c8423
+  languageName: node
+  linkType: hard
+
 "aria-query@npm:^4.2.2":
   version: 4.2.2
   resolution: "aria-query@npm:4.2.2"
@@ -4453,57 +4562,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"base-react-ts@workspace:modules/base-react-ts":
-  version: 0.0.0-use.local
-  resolution: "base-react-ts@workspace:modules/base-react-ts"
-  dependencies:
-    "@emotion/react": ^11.10.5
-    "@emotion/styled": ^11.10.5
-    "@mui/material": ^5.11.1
-    "@redux-devtools/core": ^3.13.1
-    "@reduxjs/toolkit": ^1.9.0
-    "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^13.4.0
-    "@testing-library/user-event": ^14.4.3
-    "@types/jest": ^29.2.3
-    "@types/lodash.debounce": ^4.0.7
-    "@types/node": ^18.11.9
-    "@types/react": ^18.0.25
-    "@types/react-dom": ^18.0.9
-    "@types/react-helmet": ^6.1.6
-    "@typescript-eslint/eslint-plugin": ^5.43.0
-    copyfiles: ^2.4.1
-    date-fns: ^2.29.3
-    env-cmd: ^10.1.0
-    eslint: ^8.28.0
-    eslint-config-prettier: ^8.5.0
-    eslint-config-react-app: ^7.0.1
-    eslint-config-standard-with-typescript: ^23.0.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-n: ^15.5.1
-    eslint-plugin-promise: ^6.1.1
-    eslint-plugin-react: ^7.31.11
-    lodash.debounce: ^4.0.8
-    prettier: ^2.7.1
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-helmet: ^6.1.0
-    react-redux: ^8.0.5
-    react-router-dom: ^6.4.3
-    react-scripts: ^5.0.1
-    redux-logger: ^3.0.6
-    redux-persist: ^6.0.0
-    redux-persist-expire: ^1.1.1
-    redux-persist-transform-encrypt: ^5.0.0
-    reselect: ^4.1.7
-    stylelint: ^14.15.0
-    stylelint-config-prettier: ^9.0.4
-    stylelint-config-standard: ^29.0.0
-    typescript: ^4.9.3
-    web-vitals: ^3.1.0
-  languageName: unknown
-  linkType: soft
-
 "base64-js@npm:^1.3.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
@@ -4766,6 +4824,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"camelcase@npm:5.0.0":
+  version: 5.0.0
+  resolution: "camelcase@npm:5.0.0"
+  checksum: 8bfe920e0472d79d34f0279da1391f155bcce7fc74c99b49dafae4f787396040a34f4023da837ab0b4372e63224b460f9524b495906863c38876faea9da53705
+  languageName: node
+  linkType: hard
+
 "camelcase@npm:^5.3.1":
   version: 5.3.1
   resolution: "camelcase@npm:5.3.1"
@@ -4806,7 +4871,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^2.0.0, chalk@npm:^2.4.1":
+"chalk@npm:2.4.2, chalk@npm:^2.0.0, chalk@npm:^2.4.1":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -5019,6 +5084,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"colorette@npm:^2.0.7":
+  version: 2.0.20
+  resolution: "colorette@npm:2.0.20"
+  checksum: 0c016fea2b91b733eb9f4bcdb580018f52c0bc0979443dad930e5037a968237ac53d9beb98e218d2e9235834f8eebce7f8e080422d6194e957454255bde71d3d
+  languageName: node
+  linkType: hard
+
 "combined-stream@npm:^1.0.8":
   version: 1.0.8
   resolution: "combined-stream@npm:1.0.8"
@@ -5076,15 +5148,6 @@ __metadata:
   checksum: 59715f2fc456a73f68826285718503340b9f0dd89bfffc42749906c5cf3d4277ef11ef1cca0350d0e79204f00f1f6d83851ececc9095dc88512a697ac0b9bdcb
   languageName: node
   linkType: hard
-
-"component-library@workspace:modules/component-library":
-  version: 0.0.0-use.local
-  resolution: "component-library@workspace:modules/component-library"
-  dependencies:
-    nodemon: ^2.0.15
-    prettier: ^2.5.0
-  languageName: unknown
-  linkType: soft
 
 "compressible@npm:~2.0.16":
   version: 2.0.18
@@ -5596,6 +5659,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dateformat@npm:^4.6.3":
+  version: 4.6.3
+  resolution: "dateformat@npm:4.6.3"
+  checksum: c3aa0617c0a5b30595122bc8d1bee6276a9221e4d392087b41cbbdf175d9662ae0e50d0d6dcdf45caeac5153c4b5b0844265f8cd2b2245451e3da19e39e3b65d
+  languageName: node
+  linkType: hard
+
 "debug@npm:2.6.9, debug@npm:^2.6.0, debug@npm:^2.6.9":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
@@ -6011,6 +6081,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"duplexify@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "duplexify@npm:4.1.2"
+  dependencies:
+    end-of-stream: ^1.4.1
+    inherits: ^2.0.3
+    readable-stream: ^3.1.1
+    stream-shift: ^1.0.0
+  checksum: 964376c61c0e92f6ed0694b3ba97c84f199413dc40ab8dfdaef80b7a7f4982fcabf796214e28ed614a5bc1ec45488a29b81e7d46fa3f5ddf65bcb118c20145ad
+  languageName: node
+  linkType: hard
+
 "ee-first@npm:1.1.1":
   version: 1.1.1
   resolution: "ee-first@npm:1.1.1"
@@ -6084,6 +6166,15 @@ __metadata:
   dependencies:
     iconv-lite: ^0.6.2
   checksum: bb98632f8ffa823996e508ce6a58ffcf5856330fde839ae42c9e1f436cc3b5cc651d4aeae72222916545428e54fd0f6aa8862fd8d25bdbcc4589f1e3f3715e7f
+  languageName: node
+  linkType: hard
+
+"end-of-stream@npm:^1.1.0, end-of-stream@npm:^1.4.1":
+  version: 1.4.4
+  resolution: "end-of-stream@npm:1.4.4"
+  dependencies:
+    once: ^1.4.0
+  checksum: 530a5a5a1e517e962854a31693dbb5c0b2fc40b46dad2a56a2deec656ca040631124f4795823acc68238147805f8b021abbe221f4afed5ef3c8e8efc2024908b
   languageName: node
   linkType: hard
 
@@ -6908,6 +6999,13 @@ __metadata:
   version: 3.1.2
   resolution: "fast-redact@npm:3.1.2"
   checksum: a30eb6b6830333ab213e0def55f46453ca777544dbd3a883016cb590a0eeb95e6fdf546553c1a13d509896bfba889b789991160a6d0996ceb19fce0a02e8b753
+  languageName: node
+  linkType: hard
+
+"fast-safe-stringify@npm:^2.0.7":
+  version: 2.1.1
+  resolution: "fast-safe-stringify@npm:2.1.1"
+  checksum: a851cbddc451745662f8f00ddb622d6766f9bd97642dabfd9a405fb0d646d69fc0b9a1243cbf67f5f18a39f40f6fa821737651ff1bceeba06c9992ca2dc5bd3d
   languageName: node
   linkType: hard
 
@@ -9076,6 +9174,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"joycon@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "joycon@npm:3.1.1"
+  checksum: 8003c9c3fc79c5c7602b1c7e9f7a2df2e9916f046b0dbad862aa589be78c15734d11beb9fe846f5e06138df22cb2ad29961b6a986ba81c4920ce2b15a7f11067
+  languageName: node
+  linkType: hard
+
 "js-sdsl@npm:^4.1.4":
   version: 4.2.0
   resolution: "js-sdsl@npm:4.2.0"
@@ -9307,11 +9412,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lario-react-starter@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "lario-react-starter@workspace:."
-  languageName: unknown
-  linkType: soft
+"leven@npm:2.1.0":
+  version: 2.1.0
+  resolution: "leven@npm:2.1.0"
+  checksum: f7b4a01b15c0ee2f92a04c0367ea025d10992b044df6f0d4ee1a845d4a488b343e99799e2f31212d72a2b1dea67124f57c1bb1b4561540df45190e44b5b8b394
+  languageName: node
+  linkType: hard
 
 "leven@npm:^3.1.0":
   version: 3.1.0
@@ -9389,18 +9495,6 @@ __metadata:
   checksum: 4e3ea054cdc8be1ab1f1238f49f42fdf0483039eff920fb1d442039f3f0ad4ebd11fb8e584ccdf2cb7e3c56b3d40c1832416e6408a55651b843da288960cc792
   languageName: node
   linkType: hard
-
-"local-proxy@workspace:modules/local-proxy":
-  version: 0.0.0-use.local
-  resolution: "local-proxy@workspace:modules/local-proxy"
-  dependencies:
-    cross-env: ^7.0.3
-    express: ^4.17.2
-    http-proxy-middleware: ^2.0.6
-    nodemon: ^2.0.15
-    prettier: ^2.5.0
-  languageName: unknown
-  linkType: soft
 
 "locate-path@npm:^3.0.0":
   version: 3.0.0
@@ -9867,16 +9961,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mock-server@workspace:modules/mock-server":
-  version: 0.0.0-use.local
-  resolution: "mock-server@workspace:modules/mock-server"
-  dependencies:
-    "@tsconfig/recommended": ^1.0.1
-    "@types/node": ^18.11.15
-    fastify: ^4.10.2
-    typescript: ^4.9.4
-  languageName: unknown
-  linkType: soft
+"mri@npm:1.1.4":
+  version: 1.1.4
+  resolution: "mri@npm:1.1.4"
+  checksum: e65b9aed3b9e423ad4c11f529ab1b9280f65dce8fb476d0da236b5c570ad3322fbbcd2393180855f1474f8b0f982d76ad398766fbd47b8a5ab4069e325d0268e
+  languageName: node
+  linkType: hard
 
 "ms@npm:2.0.0":
   version: 2.0.0
@@ -10254,6 +10344,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"on-exit-leak-free@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "on-exit-leak-free@npm:0.2.0"
+  checksum: d22b0f0538069110626b578db6e68b6ee0e85b1ee9cc5ef9b4de1bba431431d6a8da91a61e09d2ad46f22a96f968e5237833cb9d0b69bc4d294f7ec82f609b05
+  languageName: node
+  linkType: hard
+
 "on-exit-leak-free@npm:^2.1.0":
   version: 2.1.0
   resolution: "on-exit-leak-free@npm:2.1.0"
@@ -10277,7 +10374,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"once@npm:^1.3.0":
+"once@npm:^1.3.0, once@npm:^1.3.1, once@npm:^1.4.0":
   version: 1.4.0
   resolution: "once@npm:1.4.0"
   dependencies:
@@ -10544,6 +10641,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pino-abstract-transport@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "pino-abstract-transport@npm:0.5.0"
+  dependencies:
+    duplexify: ^4.1.2
+    split2: ^4.0.0
+  checksum: c503f867de3189f8217ab9cf794e8a631dddd0029a829f0f985f5511308152ebd53e363764fbc5570b3d1c715b341e3923456ce16ad84cd41be2b9a074ada234
+  languageName: node
+  linkType: hard
+
 "pino-abstract-transport@npm:v1.0.0":
   version: 1.0.0
   resolution: "pino-abstract-transport@npm:1.0.0"
@@ -10551,6 +10658,29 @@ __metadata:
     readable-stream: ^4.0.0
     split2: ^4.0.0
   checksum: 05dd0eda52dd99fd204b39fe7b62656744b63e863bc052cdd5105d25f226a236966d0a46e39a1ace4838f6e988c608837ff946d2d0bc92835ca7baa0a3bff8d8
+  languageName: node
+  linkType: hard
+
+"pino-pretty@npm:^7.3.0":
+  version: 7.6.1
+  resolution: "pino-pretty@npm:7.6.1"
+  dependencies:
+    args: ^5.0.1
+    colorette: ^2.0.7
+    dateformat: ^4.6.3
+    fast-safe-stringify: ^2.0.7
+    joycon: ^3.1.1
+    on-exit-leak-free: ^0.2.0
+    pino-abstract-transport: ^0.5.0
+    pump: ^3.0.0
+    readable-stream: ^3.6.0
+    rfdc: ^1.3.0
+    secure-json-parse: ^2.4.0
+    sonic-boom: ^2.2.0
+    strip-json-comments: ^3.1.1
+  bin:
+    pino-pretty: bin.js
+  checksum: 31e0e03bfd94aabdc03744e19a9599e200f94d962cbeb04f3b6fe1eb6caadb92434c41cef948fe039773966c83e5669b52470a355ada7b5affd801ce1d5a67aa
   languageName: node
   linkType: hard
 
@@ -11483,6 +11613,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:^2.3.2":
+  version: 2.8.8
+  resolution: "prettier@npm:2.8.8"
+  bin:
+    prettier: bin-prettier.js
+  checksum: b49e409431bf129dd89238d64299ba80717b57ff5a6d1c1a8b1a28b590d998a34e083fa13573bc732bb8d2305becb4c9a4407f8486c81fa7d55100eb08263cf8
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^2.5.0":
   version: 2.8.1
   resolution: "prettier@npm:2.8.1"
@@ -11641,6 +11780,16 @@ __metadata:
   version: 1.1.8
   resolution: "pstree.remy@npm:1.1.8"
   checksum: 5cb53698d6bb34dfb278c8a26957964aecfff3e161af5fbf7cee00bbe9d8547c7aced4bd9cb193bce15fb56e9e4220fc02a5bf9c14345ffb13a36b858701ec2d
+  languageName: node
+  linkType: hard
+
+"pump@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "pump@npm:3.0.0"
+  dependencies:
+    end-of-stream: ^1.1.0
+    once: ^1.3.1
+  checksum: e42e9229fba14732593a718b04cb5e1cfef8254544870997e0ecd9732b189a48e1256e4e5478148ecb47c8511dca2b09eae56b4d0aad8009e6fac8072923cfc9
   languageName: node
   linkType: hard
 
@@ -12064,6 +12213,17 @@ __metadata:
     string_decoder: ^1.1.1
     util-deprecate: ^1.0.1
   checksum: d4ea81502d3799439bb955a3a5d1d808592cf3133350ed352aeaa499647858b27b1c4013984900238b0873ec8d0d8defce72469fb7a83e61d53f5ad61cb80dc8
+  languageName: node
+  linkType: hard
+
+"readable-stream@npm:^3.1.1":
+  version: 3.6.2
+  resolution: "readable-stream@npm:3.6.2"
+  dependencies:
+    inherits: ^2.0.3
+    string_decoder: ^1.1.1
+    util-deprecate: ^1.0.1
+  checksum: bdcbe6c22e846b6af075e32cf8f4751c2576238c5043169a1c221c92ee2878458a816a4ea33f4c67623c0b6827c8a400409bfb3cf0bf3381392d0b1dfb52ac8d
   languageName: node
   linkType: hard
 
@@ -12667,6 +12827,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"secure-json-parse@npm:^2.4.0":
+  version: 2.7.0
+  resolution: "secure-json-parse@npm:2.7.0"
+  checksum: d9d7d5a01fc6db6115744ba23cf9e67ecfe8c524d771537c062ee05ad5c11b64c730bc58c7f33f60bd6877f96b86f0ceb9ea29644e4040cb757f6912d4dd6737
+  languageName: node
+  linkType: hard
+
 "secure-json-parse@npm:^2.5.0":
   version: 2.6.0
   resolution: "secure-json-parse@npm:2.6.0"
@@ -12943,6 +13110,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sonic-boom@npm:^2.2.0":
+  version: 2.8.0
+  resolution: "sonic-boom@npm:2.8.0"
+  dependencies:
+    atomic-sleep: ^1.0.0
+  checksum: c7f9c89f931d7f60f8e0741551a729f0d81e6dc407a99420fc847a9a4c25af048a615b1188ab3c4f1fb3708fe4904973ddab6ebcc8ed5b78b50ab81a99045910
+  languageName: node
+  linkType: hard
+
 "sonic-boom@npm:^3.1.0":
   version: 3.2.1
   resolution: "sonic-boom@npm:3.2.1"
@@ -13147,11 +13323,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@workspace:modules/storybook":
-  version: 0.0.0-use.local
-  resolution: "storybook@workspace:modules/storybook"
-  languageName: unknown
-  linkType: soft
+"stream-shift@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "stream-shift@npm:1.0.1"
+  checksum: 59b82b44b29ec3699b5519a49b3cedcc6db58c72fb40c04e005525dfdcab1c75c4e0c180b923c380f204bed78211b9bad8faecc7b93dece4d004c3f6ec75737b
+  languageName: node
+  linkType: hard
 
 "string-length@npm:^4.0.1":
   version: 4.0.2
@@ -13965,16 +14142,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.9.4":
-  version: 4.9.4
-  resolution: "typescript@npm:4.9.4"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: e782fb9e0031cb258a80000f6c13530288c6d63f1177ed43f770533fdc15740d271554cdae86701c1dd2c83b082cea808b07e97fd68b38a172a83dbf9e0d0ef9
-  languageName: node
-  linkType: hard
-
 "typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>":
   version: 4.9.3
   resolution: "typescript@patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=d73830"
@@ -13982,16 +14149,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 67ca21a387c0572f1c04936e638dde7782c5aa520c3754aadc7cc9b7c915da9ebc3e27c601bfff4ccb7d7264e82dce6d277ada82ec09dc75024349e0ef64926d
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
-  version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=d73830"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 37f6e2c3c5e2aa5934b85b0fddbf32eeac8b1bacf3a5b51d01946936d03f5377fe86255d4e5a4ae628fd0cd553386355ad362c57f13b4635064400f3e8e05b9d
   languageName: node
   linkType: hard
 

@@ -1,11 +1,12 @@
 {
-  "name": "lario-react-starter",
+  "name": "@lario/react-starter",
   "packageManager": "yarn@3.3.0",
   "workspaces": [
     "modules/*"
   ],
   "scripts": {
-    "local:app-develop": "yarn workspaces foreach -pi --include '{local-proxy,base-react-ts}' run local:develop",
+    "local:app-develop": "yarn workspaces foreach -pi --include '{@lario/local-proxy,@lario/base-react-ts}' run local:develop",
+    "prettier:format": "yarn workspaces foreach -pi run prettier:format",
     "app-build-serve": ""
   }
 }
