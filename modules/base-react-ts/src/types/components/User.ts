@@ -5,9 +5,10 @@ export enum Gender {
 }
 
 export interface User {
-  id?: number;
+  id: number;
   name?: string;
   email?: string;
+  age?: number;
   gender?: Gender;
   createdAt?: Date;
   updatedAt?: Date;

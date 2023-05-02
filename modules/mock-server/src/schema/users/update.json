@@ -1,0 +1,78 @@
+{
+  "title": "Update User Endpoint",
+  "Description": "Defines the shape of the update user endpoint's request and response.",
+  "body": {
+    "type": "object",
+    "required": ["id", "name", "email", "age", "gender"],
+    "properties": {
+      "id": {
+        "type": "number"
+      },
+      "name": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "age": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 150
+      },
+      "gender": {
+        "type": "string"
+      }
+    }
+  },
+  "response": {
+    "200": {
+      "type": "object",
+      "required": ["id", "name", "email", "age", "gender", "createdAt", "updatedAt"],
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "age": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 150
+        },
+        "gender": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "500": {
+      "type": "object",
+      "required": ["errorMsg"],
+      "properties": {
+        "errorMsg": {
+          "type": "string"
+        }
+      }
+    },
+    "401": {
+      "type": "object",
+      "required": ["errorMsg"],
+      "properties": {
+        "errorMsg": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "title": "Get User Endpoint",
+  "Description": "Defines the shape of the get user endpoint's request and response"
+}
