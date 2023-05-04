@@ -1,7 +1,7 @@
 module.exports = [
   {
     id: 1,
-    name: 'Larry Berton',
+    name: 'Larry Berry',
     email: 'larry@berton.com',
     age: 20,
     gender: 'FEMALE',

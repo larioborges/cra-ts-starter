@@ -1,3 +1,5 @@
+const disableCors = require('./disableCors');
+
 module.exports = function (fastify) {
     fastify
         .addHook('preHandler', (req, _, done) => {
@@ -20,9 +22,9 @@ module.exports = function (fastify) {
         .addHook('onRequest', (req, reply, done) => {
             reply.startTime = Date.now();
             req.log.info({ url: req.raw.url, id: req.id }, 'received request');
-            // TODO Lario
+            // TODO Lario - proxy solution needs to be fixed
             // Disable CORS
-            reply.header('Access-Control-Allow-Origin', '*')
+            disableCors(reply);
             // req.
             // Access-Control-Allow-Origin
             done();

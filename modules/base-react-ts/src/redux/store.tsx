@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistStore } from 'redux-persist';
 import { InitialState } from 'types';
 
-import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import * as utilities from 'utilities';
 import { api } from './api';
 import { initialState as appInitialState } from './app';
@@ -45,6 +44,6 @@ const store = configureAppStore();
 const persistor = persistStore(store);
 
 // TODO Lario: set up data refetch
-setupListeners(store.dispatch);
+// setupListeners(store.dispatch);
 
 export { store, persistor };

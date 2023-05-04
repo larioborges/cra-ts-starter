@@ -11,13 +11,9 @@ import { User } from 'types/components/User';
 import { formatDate, formatDateTime } from 'utilities/date';
 import { Gender } from '../../types/components/User';
 
-const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
-  userMap,
-  userIds,
-}: {
-  userMap: User[];
-  userIds: number[];
-}): JSX.Element => {
+const UserList: React.FC<{ users: User[] | undefined }> = ({ users }: { users: User[] | undefined }): JSX.Element => {
+  users = users != null ? users : [];
+
   return (
     <TableContainer component={Paper}>
       <Table
@@ -34,11 +30,10 @@ const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {userIds?.map(userId => {
-            const user = userMap[userId];
+          {users.map(user => {
             return (
               <TableRow
-                key={userId}
+                key={user.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell
@@ -52,7 +47,7 @@ const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
                 <TableCell align="right">{formatDate(user.createdAt)}</TableCell>
                 <TableCell align="right">{formatDateTime(user.updatedAt)}</TableCell>
                 <TableCell>
-                  <Link href={`users/edit/${userId != null ? userId : ''}`}>Edit</Link>
+                  <Link href={`users/edit/${user.id}`}>Edit</Link>
                 </TableCell>
               </TableRow>
             );
