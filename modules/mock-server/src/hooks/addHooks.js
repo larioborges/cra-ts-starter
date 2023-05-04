@@ -20,6 +20,11 @@ module.exports = function (fastify) {
         .addHook('onRequest', (req, reply, done) => {
             reply.startTime = Date.now();
             req.log.info({ url: req.raw.url, id: req.id }, 'received request');
+            // TODO Lario
+            // Disable CORS
+            reply.header('Access-Control-Allow-Origin', '*')
+            // req.
+            // Access-Control-Allow-Origin
             done();
         })
         .addHook('onClose', (fastify, done) => {

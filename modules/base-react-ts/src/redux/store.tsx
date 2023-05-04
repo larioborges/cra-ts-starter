@@ -2,7 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistStore } from 'redux-persist';
 import { InitialState } from 'types';
 
+import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import * as utilities from 'utilities';
+import { api } from './api';
 import { initialState as appInitialState } from './app';
 import { initialState as counterInitialState } from './counter';
 import { getPersistedReducer } from './persist';
@@ -16,6 +18,8 @@ const configureAppStore = (
   },
 ) =>
   configureStore({
+    // reducer: rootReducer,
+    // TODO Lario: have example encrypted store
     reducer: getPersistedReducer({
       reducer: rootReducer,
       storageKey: 'lario-react',
@@ -30,7 +34,7 @@ const configureAppStore = (
         },
         serializableCheck: true,
         immutableCheck: true,
-      }),
+      }).concat(api.middleware),
     // .concat(createLogger)
     // .concat(),
     preloadedState: initialState,
@@ -39,5 +43,8 @@ const configureAppStore = (
 
 const store = configureAppStore();
 const persistor = persistStore(store);
+
+// TODO Lario: set up data refetch
+setupListeners(store.dispatch);
 
 export { store, persistor };
