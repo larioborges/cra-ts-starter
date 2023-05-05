@@ -19,7 +19,7 @@ const userApi = api.injectEndpoints({
     getUser: build.query<User, string>({
       query: id => `users/${id}`,
       providesTags: (result, error, id): any => [{ type: USER_TAG, id }],
-      forceRefetch: ({ currentArg, previousArg }) => currentArg !== previousArg,
+      forceRefetch: () => true,
     }),
     addUser: build.mutation<User, Partial<User>>({
       query: body => ({
