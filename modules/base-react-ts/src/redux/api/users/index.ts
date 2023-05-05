@@ -14,10 +14,12 @@ const userApi = api.injectEndpoints({
         result !== undefined && result.length > 0
           ? [...result.map(({ id }: User) => ({ type: USER_TAG, id })), USER_LIST_TAG]
           : [USER_LIST_TAG],
+      forceRefetch: () => true,
     }),
     getUser: build.query<User, string>({
       query: id => `users/${id}`,
       providesTags: (result, error, id): any => [{ type: USER_TAG, id }],
+      forceRefetch: ({ currentArg, previousArg }) => currentArg !== previousArg,
     }),
     addUser: build.mutation<User, Partial<User>>({
       query: body => ({

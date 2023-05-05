@@ -47,7 +47,7 @@ const UserList: React.FC<{ users: User[] | undefined }> = ({ users }: { users: U
                 <TableCell align="right">{formatDate(user.createdAt)}</TableCell>
                 <TableCell align="right">{formatDateTime(user.updatedAt)}</TableCell>
                 <TableCell>
-                  <Link href={`users/edit/${user.id}`}>Edit</Link>
+                  <Link href={`edit/${user.id}`}>Edit</Link>
                 </TableCell>
               </TableRow>
             );
