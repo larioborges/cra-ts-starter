@@ -21,8 +21,8 @@
         "maximum": 150
       },
       "gender": {
-        "type": "string",
-        "enum": ["MALE", "FEMALE", "OTHER"]
+        "type": "number",
+        "enum": [0, 1, 2]
       }
     }
   },

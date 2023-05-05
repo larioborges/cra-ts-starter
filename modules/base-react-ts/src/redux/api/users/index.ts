@@ -15,6 +15,10 @@ const userApi = api.injectEndpoints({
           ? [...result.map(({ id }: User) => ({ type: USER_TAG, id })), USER_LIST_TAG]
           : [USER_LIST_TAG],
     }),
+    getUser: build.query<User, string>({
+      query: id => `users/${id}`,
+      providesTags: (result, error, id): any => [{ type: USER_TAG, id }],
+    }),
     addUser: build.mutation<User, Partial<User>>({
       query: body => ({
         url: `users`,
@@ -22,10 +26,6 @@ const userApi = api.injectEndpoints({
         body,
       }),
       invalidatesTags: [USER_LIST_TAG] as any,
-    }),
-    getUser: build.query<User, string>({
-      query: id => `users/${id}`,
-      providesTags: (result, error, id): any => [{ type: USER_TAG, id }],
     }),
     updateUser: build.mutation<void | never, Pick<User, 'id'> & Partial<User>>({
       query: ({ id, ...patch }) => ({

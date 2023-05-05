@@ -1,4 +1,4 @@
-import { Link as MuiLink, LinkProps } from '@mui/material';
+import { LinkProps, Link as MuiLink } from '@mui/material';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
 import React, { FC } from 'react';

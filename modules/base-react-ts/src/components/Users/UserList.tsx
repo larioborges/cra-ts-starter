@@ -5,7 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Link from 'components/Link';
+import Link from 'components/shared/Link';
 import React from 'react';
 import { User } from 'types/components/User';
 import { formatDate, formatDateTime } from 'utilities/date';

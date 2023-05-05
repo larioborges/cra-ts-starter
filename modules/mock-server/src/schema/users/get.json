@@ -1,4 +1,55 @@
 {
   "title": "Get User Endpoint Schema",
-  "Description": "Get user endpoint's request and response object shape"
+  "Description": "Get user endpoint's request and response object shape",
+  "response": {
+    "200": {
+      "type": "object",
+      "required": ["id", "name", "email", "age", "gender", "createdAt", "updatedAt"],
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "age": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 150
+        },
+        "gender": {
+          "type": "number",
+          "enum": [0, 1, 2]
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "404": {
+    "type": "object",
+    "required": ["errorMsg"],
+    "properties": {
+      "errorMsg": {
+        "type": "string"
+      }
+    }
+  },
+  "500": {
+    "type": "object",
+    "required": ["errorMsg"],
+    "properties": {
+      "errorMsg": {
+        "type": "string"
+      }
+    }
+  }
 }
