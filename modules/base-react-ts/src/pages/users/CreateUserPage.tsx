@@ -3,16 +3,22 @@ import UserForm from 'components/Users/UserForm';
 import ErrorMsg from 'components/shared/ErrorMsg';
 import Loader from 'components/shared/Loader';
 import { DEFAULT_USER } from 'consts';
-import React from 'react';
+import React, { FormEventHandler } from 'react';
 import { Link } from 'react-router-dom';
 
 const AddUserPage: React.FC<{}> = (): JSX.Element => {
   const error = {};
-  const isError = true;
-  const isLoading = true;
+  const isError = false;
+  const isLoading = false;
+
+  const createUserFormSubmit: FormEventHandler<HTMLFormElement> = event => {
+    console.log('CREATE USER');
+    event.preventDefault();
+  };
+
   return (
     <React.Fragment>
-      <h1>Edit User</h1>
+      <h1>Create User</h1>
       <Loader isLoading={isLoading} />
       {!isLoading && (
         <React.Fragment>
@@ -22,7 +28,7 @@ const AddUserPage: React.FC<{}> = (): JSX.Element => {
           />
           <UserForm
             user={DEFAULT_USER}
-            onSubmit={() => {}}
+            onSubmit={createUserFormSubmit}
             submitText="Add User"
           />
         </React.Fragment>
