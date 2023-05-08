@@ -1,6 +1,6 @@
 import CounterPage from 'pages/CounterPage';
 import ErrorPage from 'pages/ErrorPage';
-import AddUserPage from 'pages/users/AddUserPage';
+import CreateUserPage from 'pages/users/CreateUserPage';
 import EditUserPage from 'pages/users/EditUserPage';
 import UsersListPage from 'pages/users/UsersListPage';
 import React from 'react';
@@ -22,8 +22,8 @@ const Router = createBrowserRouter([
         element: <UsersListPage />,
       },
       {
-        path: 'users/add',
-        element: <AddUserPage />,
+        path: 'users/create',
+        element: <CreateUserPage />,
       },
       {
         path: 'users/edit/:userId',
