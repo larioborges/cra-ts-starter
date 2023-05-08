@@ -9,7 +9,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import React, { useCallback } from 'react';
-import { Link as ReactRouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Gender, User } from 'types/components/User';
 import { formatDate, formatDateTime } from 'utilities/date';
 
@@ -55,11 +55,11 @@ const UserList: React.FC<{ users: User[] | undefined }> = ({ users }: { users: U
                 <TableCell align="right">{formatDate(user.createdAt)}</TableCell>
                 <TableCell align="right">{formatDateTime(user.updatedAt)}</TableCell>
                 <TableCell>
-                  <ReactRouterLink to={`edit/${user.id}`}>
+                  <Link to={`edit/${user.id}`}>
                     <IconButton aria-label="edit user">
                       <Edit color="primary" />
                     </IconButton>
-                  </ReactRouterLink>
+                  </Link>
                 </TableCell>
                 <TableCell>
                   <IconButton

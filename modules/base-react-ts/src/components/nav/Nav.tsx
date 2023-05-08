@@ -1,9 +1,8 @@
-import { Button } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import NavLink from './NavLink';
 
 const Nav: React.FC<{}> = (): JSX.Element => {
   return (
@@ -23,13 +22,8 @@ const Nav: React.FC<{}> = (): JSX.Element => {
           React Starter
         </Typography>
         <nav>
-          {/* TODO Lario: Style the underlying buttont using the NavLink active class */}
-          <NavLink to="counter">
-            <Button variant="text">Counter</Button>
-          </NavLink>
-          <NavLink to="users">
-            <Button variant="text">Users</Button>
-          </NavLink>
+          <NavLink to="counter">Counter</NavLink>
+          <NavLink to="users">Users</NavLink>
         </nav>
       </Toolbar>
     </AppBar>

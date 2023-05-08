@@ -4,7 +4,7 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 
 import React, { FC } from 'react';
 
-const Link: FC<LinkProps> = props => {
+const ButtonLink: FC<LinkProps> = props => {
   return (
     <MuiLink
       variant="button"
@@ -15,4 +15,4 @@ const Link: FC<LinkProps> = props => {
   );
 };
 
-export default Link;
+export default ButtonLink;

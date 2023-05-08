@@ -3,7 +3,7 @@ import ErrorMsg from 'components/shared/ErrorMsg';
 import Loader from 'components/shared/Loader';
 import UserForm from 'components/Users/UserForm';
 import React from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useGetUserQuery } from 'redux/api';
 
 const EditUserPage: React.FC<{}> = (): JSX.Element => {
@@ -25,7 +25,7 @@ const EditUserPage: React.FC<{}> = (): JSX.Element => {
           submitText="Update User"
         />
       )}
-      <NavLink to="/users">
+      <Link to="/users">
         <Button
           variant="outlined"
           sx={{ mt: 3, mb: 2 }}
@@ -33,7 +33,7 @@ const EditUserPage: React.FC<{}> = (): JSX.Element => {
         >
           BACK
         </Button>
-      </NavLink>
+      </Link>
     </React.Fragment>
   );
 };
