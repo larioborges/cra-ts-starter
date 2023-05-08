@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import ErrorMsg from 'components/shared/ErrorMsg';
 import Loader from 'components/shared/Loader';
 import UserForm from 'components/Users/UserForm';
@@ -24,11 +25,14 @@ const EditUserPage: React.FC<{}> = (): JSX.Element => {
           submitText="Update User"
         />
       )}
-      <NavLink
-        color="text.primary"
-        to="/users"
-      >
-        Back
+      <NavLink to="/users">
+        <Button
+          variant="outlined"
+          sx={{ mt: 3, mb: 2 }}
+          fullWidth
+        >
+          BACK
+        </Button>
       </NavLink>
     </React.Fragment>
   );

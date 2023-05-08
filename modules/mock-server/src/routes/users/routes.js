@@ -1,7 +1,7 @@
 // const { create, queryByProperty } = require('../db');
 // const { TABLES } = require('@lario/db-models');
 const usersSchema = require('../../schema/users');
-const users = require('./data');
+const { users, getUserById, deleteUserById } = require('./data');
 
 async function routes(fastify) {
   // LIST USERS
@@ -28,19 +28,12 @@ async function routes(fastify) {
       },
       async (request, reply) => {
         const { userId } = request.params;
-        const userMatches = users.filter(u => u.id == userId)
+        const { user, responseCode, errorMsg } = getUserById(users, userId);
 
-        if (userMatches.length === 0) {
-            reply.code(404).send({ errorMsg: 'there is no user with that user ID' });
-        } else if (userMatches.length > 1) {
-            reply.code(500).send({ errorMsg: 'More than 1 user with a matching ID was found' });
+        if (user) {
+          reply.code(responseCode).send(user);
         } else {
-          try {
-              reply.code(200).send(userMatches[0]);
-          } catch (err) {
-              fastify.log.error(err);
-              reply.code(500).send({ errorMsg: 'Unexpected error' });
-          }
+          reply.code(responseCode).send(errorMsg);
         }
       },
   );
@@ -49,36 +42,9 @@ async function routes(fastify) {
   //   fastify.post(
   //     '',
   //     {
-  //         schema: SIGNUP_SCHEMA,
+  //         schema: usersSchema.create,
   //     },
   //     async (request, reply) => {
-  //         const user = await queryByProperty(fastify, TABLES.USERS, {
-  //             email: request.body.emailAddress,
-  //         });
-  //         if (user) {
-  //             reply.code(500).send({ errorMsg: 'User email already exists!' });
-  //             return;
-  //         }
-
-  //         try {
-  //             const hashedPassword = await fastify.bcrypt.hash(request.body.password);
-  //             const token = fastify.jwt.sign({  });
-
-  //             await create(fastify, TABLES.USERS, {
-  //                 email: request.body.emailAddress,
-  //                 firstName: request.body.firstName,
-  //                 lastName: request.body.lastName,
-  //                 hashedPassword,
-  //             });
-
-  //             reply.code(200).send({
-  //                 authToken: token,
-  //             });
-  //         } catch (e) {
-  //             reply.code(500).send({ errorMsg: e });
-  //             fastify.log.fatal("Signup failed");
-  //             throw e;
-  //         }
   //     },
   // );
 
@@ -86,75 +52,29 @@ async function routes(fastify) {
   // fastify.put(
   //     '/signup',
   //     {
-  //         schema: SIGNUP_SCHEMA,
+  //         schema: usersSchema.update,
   //     },
   //     async (request, reply) => {
-  //         const user = await queryByProperty(fastify, TABLES.USERS, {
-  //             email: request.body.emailAddress,
-  //         });
-  //         if (user) {
-  //             reply.code(500).send({ errorMsg: 'User email already exists!' });
-  //             return;
-  //         }
-
-  //         try {
-  //             const hashedPassword = await fastify.bcrypt.hash(request.body.password);
-  //             const token = fastify.jwt.sign({  });
-
-  //             await create(fastify, TABLES.USERS, {
-  //                 email: request.body.emailAddress,
-  //                 firstName: request.body.firstName,
-  //                 lastName: request.body.lastName,
-  //                 hashedPassword,
-  //             });
-
-  //             reply.code(200).send({
-  //                 authToken: token,
-  //             });
-  //         } catch (e) {
-  //             reply.code(500).send({ errorMsg: e });
-  //             fastify.log.fatal("Signup failed");
-  //             throw e;
-  //         }
   //     },
   // );
 
   // TODO Lario: DELETE USER
-  // fastify.delete(
-  //     '/signup',
-  //     {
-  //         schema: SIGNUP_SCHEMA,
-  //     },
-  //     async (request, reply) => {
-  //         const user = await queryByProperty(fastify, TABLES.USERS, {
-  //             email: request.body.emailAddress,
-  //         });
-  //         if (user) {
-  //             reply.code(500).send({ errorMsg: 'User email already exists!' });
-  //             return;
-  //         }
+  fastify.delete(
+      '/:userId',
+      {
+          schema: usersSchema.delete,
+      },
+      async (request, reply) => {
+        const { userId } = request.params;
+        const { deletedUserId, responseCode, errorMsg } = deleteUserById(users, userId);
 
-  //         try {
-  //             const hashedPassword = await fastify.bcrypt.hash(request.body.password);
-  //             const token = fastify.jwt.sign({  });
-
-  //             await create(fastify, TABLES.USERS, {
-  //                 email: request.body.emailAddress,
-  //                 firstName: request.body.firstName,
-  //                 lastName: request.body.lastName,
-  //                 hashedPassword,
-  //             });
-
-  //             reply.code(200).send({
-  //                 authToken: token,
-  //             });
-  //         } catch (e) {
-  //             reply.code(500).send({ errorMsg: e });
-  //             fastify.log.fatal("Signup failed");
-  //             throw e;
-  //         }
-  //     },
-  // );
+        if (deletedUserId) {
+          reply.code(responseCode).send(deletedUserId);
+        } else {
+          reply.code(responseCode).send(errorMsg);
+        }
+      },
+  );
 }
 
 module.exports = routes;

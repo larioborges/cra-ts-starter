@@ -2313,6 +2313,7 @@ __metadata:
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@lario/prettier-config": "workspace:^"
+    "@mui/icons-material": ^5.11.16
     "@mui/material": ^5.11.1
     "@redux-devtools/core": ^3.13.1
     "@reduxjs/toolkit": ^1.9.0
@@ -2453,6 +2454,22 @@ __metadata:
   version: 5.12.3
   resolution: "@mui/core-downloads-tracker@npm:5.12.3"
   checksum: ad9c9e4f03a3c09e3a2d68d48c1a2c336b844878ee0ed3ca0062668ed065ad9616251802cf3329e748ba059d82861dc5631a231073397d6c659fe9dcca952b5c
+  languageName: node
+  linkType: hard
+
+"@mui/icons-material@npm:^5.11.16":
+  version: 5.11.16
+  resolution: "@mui/icons-material@npm:5.11.16"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+  peerDependencies:
+    "@mui/material": ^5.0.0
+    "@types/react": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: db70426b6ede049307b951fc622c6ab3b156a24589242bebbc7effd4b0df2d3c7aca93796ed8dfdf20776248778a798724c7a112f8f687c3b4a1ae813f98fb17
   languageName: node
   linkType: hard
 
