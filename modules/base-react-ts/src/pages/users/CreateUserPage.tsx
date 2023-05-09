@@ -1,19 +1,20 @@
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import UserForm from 'components/Users/UserForm';
 import ErrorMsg from 'components/shared/ErrorMsg';
 import Loader from 'components/shared/Loader';
 import { DEFAULT_USER } from 'consts';
-import React, { FormEventHandler } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { User } from 'types/components/User';
 
 const AddUserPage: React.FC<{}> = (): JSX.Element => {
   const error = {};
   const isError = false;
   const isLoading = false;
 
-  const createUserFormSubmit: FormEventHandler<HTMLFormElement> = event => {
+  const createUser = (user: User): void => {
     console.log('CREATE USER');
-    event.preventDefault();
+    console.log(user);
   };
 
   return (
@@ -28,7 +29,7 @@ const AddUserPage: React.FC<{}> = (): JSX.Element => {
           />
           <UserForm
             user={DEFAULT_USER}
-            onSubmit={createUserFormSubmit}
+            handleUserSubmit={createUser}
             submitText="Add User"
           />
         </React.Fragment>

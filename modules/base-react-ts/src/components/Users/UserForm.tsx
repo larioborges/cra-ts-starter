@@ -8,11 +8,22 @@ import TextField from '@mui/material/TextField';
 import React, { FormEventHandler } from 'react';
 import { Gender, User } from 'types/components/User';
 
-const UserForm: React.FC<{ onSubmit: FormEventHandler<HTMLFormElement>; user: User; submitText: string }> = ({
-  onSubmit = () => {},
+const UserForm: React.FC<{ handleUserSubmit: Function; user: User; submitText: string }> = ({
+  handleUserSubmit = () => {},
   submitText = 'Add User',
   user,
 }): JSX.Element => {
+  const onSubmit: FormEventHandler<HTMLFormElement> = event => {
+    const { name, email, gender, age } = event.target as any;
+    handleUserSubmit({
+      id: user.id,
+      name: name?.value,
+      email: email?.value,
+      gender: gender?.value,
+      age: age?.value,
+    });
+    event.preventDefault();
+  };
   return (
     <Box
       component="form"
@@ -42,11 +53,24 @@ const UserForm: React.FC<{ onSubmit: FormEventHandler<HTMLFormElement>; user: Us
         autoFocus
         value={user?.email}
       />
+      <TextField
+        margin="normal"
+        required
+        fullWidth
+        id="age"
+        label="Age"
+        name="age"
+        autoComplete="age"
+        autoFocus
+        value={user?.age}
+        type="number"
+      />
       <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
       <RadioGroup
-        aria-labelledby="demo-radio-buttons-group-label"
+        aria-labelledby="Gender"
         value={user?.gender}
-        name="radio-buttons-group"
+        id="gender"
+        name="gender"
       >
         <FormControlLabel
           value={Gender.FEMALE}

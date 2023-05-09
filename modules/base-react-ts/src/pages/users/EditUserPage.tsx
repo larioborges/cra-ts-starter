@@ -1,19 +1,20 @@
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import ErrorMsg from 'components/shared/ErrorMsg';
 import Loader from 'components/shared/Loader';
 import UserForm from 'components/Users/UserForm';
-import React, { FormEventHandler } from 'react';
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useGetUserQuery } from 'redux/api';
+import { User } from 'types/components/User';
 
 const EditUserPage: React.FC<{}> = (): JSX.Element => {
   const params = useParams();
   const { userId = '0' } = params;
   const { data: user, isLoading, isError, error } = useGetUserQuery(userId);
 
-  const editUserFormSubmit: FormEventHandler<HTMLFormElement> = event => {
+  const updateUser = (user: User): void => {
     console.log('UPDATE USER');
-    event.preventDefault();
+    console.log(user);
   };
 
   return (
@@ -27,7 +28,7 @@ const EditUserPage: React.FC<{}> = (): JSX.Element => {
       {user != null && (
         <UserForm
           user={user}
-          onSubmit={editUserFormSubmit}
+          handleUserSubmit={updateUser}
           submitText="Update User"
         />
       )}

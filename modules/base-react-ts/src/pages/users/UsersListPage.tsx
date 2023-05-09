@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import UserList from 'components/Users/UserList';
 import ErrorMsg from 'components/shared/ErrorMsg';
 import Loader from 'components/shared/Loader';
