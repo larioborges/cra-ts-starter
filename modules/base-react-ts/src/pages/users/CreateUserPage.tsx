@@ -2,7 +2,6 @@ import Button from '@mui/material/Button';
 import UserForm from 'components/Users/UserForm';
 import ErrorMsg from 'components/shared/ErrorMsg';
 import Loader from 'components/shared/Loader';
-import { DEFAULT_USER } from 'consts';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { User } from 'types/components/User';
@@ -28,7 +27,6 @@ const AddUserPage: React.FC<{}> = (): JSX.Element => {
             errorMsg={(error as any)?.data?.errorMsg}
           />
           <UserForm
-            user={DEFAULT_USER}
             handleUserSubmit={createUser}
             submitText="Add User"
           />

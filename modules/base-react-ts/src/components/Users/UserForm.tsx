@@ -5,25 +5,41 @@ import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import TextField from '@mui/material/TextField';
-import React, { FormEventHandler } from 'react';
+import { DEFAULT_USER } from 'consts';
+import React, { FormEventHandler, useCallback, useState } from 'react';
 import { Gender, User } from 'types/components/User';
 
-const UserForm: React.FC<{ handleUserSubmit: Function; user: User; submitText: string }> = ({
+const UserForm: React.FC<{ handleUserSubmit: Function; user?: User; submitText: string }> = ({
   handleUserSubmit = () => {},
   submitText = 'Add User',
-  user,
+  user = DEFAULT_USER,
 }): JSX.Element => {
-  const onSubmit: FormEventHandler<HTMLFormElement> = event => {
-    const { name, email, gender, age } = event.target as any;
-    handleUserSubmit({
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [gender] = useState(user.gender);
+  const [age, setAge] = useState(user.age?.toString());
+
+  const getSubmitUser = useCallback(() => {
+    const submitUser: User = {
       id: user.id,
-      name: name?.value,
-      email: email?.value,
-      gender: gender?.value,
-      age: age?.value,
-    });
-    event.preventDefault();
-  };
+      name: name?.trim(),
+      email: email?.trim(),
+      gender,
+    };
+    if (age != null && age.trim() !== '') {
+      submitUser.age = parseInt(age.trim());
+    }
+    return submitUser;
+  }, [user.id, name, email, gender, age]);
+
+  const onSubmit: FormEventHandler<HTMLFormElement> = useCallback(
+    event => {
+      handleUserSubmit(getSubmitUser());
+      event.preventDefault();
+    },
+    [handleUserSubmit, getSubmitUser],
+  );
+
   return (
     <Box
       component="form"
@@ -40,7 +56,10 @@ const UserForm: React.FC<{ handleUserSubmit: Function; user: User; submitText: s
         type="text"
         id="name"
         autoComplete="name"
-        value={user?.name}
+        value={name}
+        onChange={e => {
+          setName(e.target.value);
+        }}
       />
       <TextField
         margin="normal"
@@ -51,7 +70,10 @@ const UserForm: React.FC<{ handleUserSubmit: Function; user: User; submitText: s
         name="email"
         autoComplete="email"
         autoFocus
-        value={user?.email}
+        value={email}
+        onChange={e => {
+          setEmail(e.target.value);
+        }}
       />
       <TextField
         margin="normal"
@@ -62,13 +84,20 @@ const UserForm: React.FC<{ handleUserSubmit: Function; user: User; submitText: s
         name="age"
         autoComplete="age"
         autoFocus
-        value={user?.age}
+        value={age}
+        onChange={e => {
+          setAge(e.target.value);
+        }}
         type="number"
       />
-      <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+      <FormLabel id="gender-label">Gender</FormLabel>
       <RadioGroup
         aria-labelledby="Gender"
-        value={user?.gender}
+        value={gender}
+        onChange={e => {
+          // user.gender = e.target.value != null ? e.target.value : undefined;
+          console.log(e);
+        }}
         id="gender"
         name="gender"
       >
