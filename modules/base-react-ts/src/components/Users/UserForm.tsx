@@ -5,27 +5,28 @@ import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import TextField from '@mui/material/TextField';
-import { DEFAULT_USER } from 'consts';
 import React, { FormEventHandler, useCallback, useState } from 'react';
-import { Gender, User } from 'types/components/User';
+import { Gender, User } from 'types/user';
 
-const UserForm: React.FC<{ handleUserSubmit: Function; user?: User; submitText: string }> = ({
+const UserForm: React.FC<{ handleUserSubmit: Function; user?: Partial<User>; submitText: string }> = ({
   handleUserSubmit = () => {},
   submitText = 'Add User',
-  user = DEFAULT_USER,
+  user = {},
 }): JSX.Element => {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const [gender] = useState(user.gender);
+  const [gender, setGender] = useState(user.gender);
   const [age, setAge] = useState(user.age?.toString());
 
   const getSubmitUser = useCallback(() => {
-    const submitUser: User = {
-      id: user.id,
+    const submitUser: Partial<User> = {
       name: name?.trim(),
       email: email?.trim(),
       gender,
     };
+    if (user.id != null && user.id > 0) {
+      submitUser.id = user.id;
+    }
     if (age != null && age.trim() !== '') {
       submitUser.age = parseInt(age.trim());
     }
@@ -95,8 +96,7 @@ const UserForm: React.FC<{ handleUserSubmit: Function; user?: User; submitText: 
         aria-labelledby="Gender"
         value={gender}
         onChange={e => {
-          // user.gender = e.target.value != null ? e.target.value : undefined;
-          console.log(e);
+          setGender(parseInt(e.target.value));
         }}
         id="gender"
         name="gender"

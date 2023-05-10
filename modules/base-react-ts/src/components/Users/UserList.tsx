@@ -10,7 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Gender, User } from 'types/components/User';
+import { Gender, User } from 'types/user';
 import { formatDate, formatDateTime } from 'utilities/date';
 
 const UserList: React.FC<{ users: User[] | undefined }> = ({ users }: { users: User[] | undefined }): JSX.Element => {

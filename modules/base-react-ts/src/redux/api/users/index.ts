@@ -1,4 +1,4 @@
-import { User } from 'types/components/User';
+import { User } from 'types/user';
 import { api } from '../api';
 
 type UsersResponse = User[];

@@ -5,7 +5,7 @@ import UserForm from 'components/Users/UserForm';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useGetUserQuery } from 'redux/api';
-import { User } from 'types/components/User';
+import { User } from 'types/user';
 
 const EditUserPage: React.FC<{}> = (): JSX.Element => {
   const params = useParams();

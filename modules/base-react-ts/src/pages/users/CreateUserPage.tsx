@@ -4,15 +4,16 @@ import ErrorMsg from 'components/shared/ErrorMsg';
 import Loader from 'components/shared/Loader';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { User } from 'types/components/User';
+import { User } from 'types/user';
 
 const AddUserPage: React.FC<{}> = (): JSX.Element => {
   const error = {};
   const isError = false;
   const isLoading = false;
 
-  const createUser = (user: User): void => {
+  const createUser = (user: Partial<User>): void => {
     console.log('CREATE USER');
+    // useAddUserMutation();
     console.log(user);
   };
 
