@@ -4,23 +4,38 @@ import Loader from 'components/shared/Loader';
 import UserForm from 'components/Users/UserForm';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useGetUserQuery } from 'redux/api';
+import { useGetUserQuery, useUpdateUserMutation } from 'redux/api';
 import { User } from 'types/user';
 
 const EditUserPage: React.FC<{}> = (): JSX.Element => {
   const params = useParams();
   const { userId = '0' } = params;
+
   const { data: user, isLoading, isError, error } = useGetUserQuery(userId);
 
-  const updateUser = (user: User): void => {
+  const [updateUser, updateUserResult] = useUpdateUserMutation();
+  const {
+    // data: updateResponse,
+    // error: updateError,
+    // isError: updateIsError,
+    isLoading: updateIsLoading /* isSuccess, data */,
+  } = updateUserResult;
+
+  const handleUpdateUser = async (user: User): Promise<void> => {
     console.log('UPDATE USER');
-    console.log(user);
+    try {
+      await updateUser(user);
+    } catch (e) {
+      console.log('Unexpected error', e);
+    }
   };
+
+  console.log(updateUserResult);
 
   return (
     <React.Fragment>
       <h1>Edit User</h1>
-      <Loader isLoading={isLoading} />
+      <Loader isLoading={isLoading || updateIsLoading} />
       <ErrorMsg
         isError={isError}
         errorMsg={(error as any)?.data?.errorMsg}
@@ -28,7 +43,7 @@ const EditUserPage: React.FC<{}> = (): JSX.Element => {
       {user != null && (
         <UserForm
           user={user}
-          handleUserSubmit={updateUser}
+          handleUserSubmit={handleUpdateUser}
           submitText="Update User"
         />
       )}

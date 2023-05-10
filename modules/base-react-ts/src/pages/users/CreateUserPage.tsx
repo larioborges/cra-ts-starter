@@ -4,18 +4,23 @@ import ErrorMsg from 'components/shared/ErrorMsg';
 import Loader from 'components/shared/Loader';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAddUserMutation } from 'redux/api';
 import { User } from 'types/user';
 
 const AddUserPage: React.FC<{}> = (): JSX.Element => {
-  const error = {};
-  const isError = false;
-  const isLoading = false;
+  const [addUser, result] = useAddUserMutation();
+  const { error, isError, isLoading /* isSuccess, data */ } = result;
 
-  const createUser = (user: Partial<User>): void => {
+  const createUser = async (user: Partial<User>): Promise<void> => {
     console.log('CREATE USER');
-    // useAddUserMutation();
-    console.log(user);
+    try {
+      await addUser(user);
+    } catch (e) {
+      console.log('Unexpected error', e);
+    }
   };
+
+  console.log('result', result);
 
   return (
     <React.Fragment>

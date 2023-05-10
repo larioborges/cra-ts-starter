@@ -15,7 +15,7 @@ const UserForm: React.FC<{ handleUserSubmit: Function; user?: Partial<User>; sub
 }): JSX.Element => {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const [gender, setGender] = useState(user.gender);
+  const [gender, setGender] = useState(user.gender == null ? 0 : user.gender);
   const [age, setAge] = useState(user.age?.toString());
 
   const getSubmitUser = useCallback(() => {
