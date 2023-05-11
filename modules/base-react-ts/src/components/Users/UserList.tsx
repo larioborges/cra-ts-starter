@@ -8,17 +8,19 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import React, { useCallback } from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Gender, User } from 'types/user';
 import { formatDate, formatDateTime } from 'utilities/date';
 
-const UserList: React.FC<{ users: User[] | undefined }> = ({ users }: { users: User[] | undefined }): JSX.Element => {
-  users = users != null ? users : [];
-
-  const handleDeleteClick = useCallback((userId: number) => {
-    console.log('DELETE CLICK', userId);
-  }, []);
+const UserList: React.FC<{ users?: User[]; handleDelete?: any }> = ({
+  users = [],
+  handleDelete,
+}: {
+  users?: User[] | undefined;
+  handleDelete?: any;
+}): JSX.Element => {
+  const hasDelete = useMemo(() => handleDelete != null, [handleDelete]);
 
   return (
     <TableContainer component={Paper}>
@@ -34,7 +36,7 @@ const UserList: React.FC<{ users: User[] | undefined }> = ({ users }: { users: U
             <TableCell align="right">Date Created</TableCell>
             <TableCell align="right">Last Updated</TableCell>
             <TableCell />
-            <TableCell />
+            {hasDelete && <TableCell />}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -61,14 +63,16 @@ const UserList: React.FC<{ users: User[] | undefined }> = ({ users }: { users: U
                     </IconButton>
                   </Link>
                 </TableCell>
-                <TableCell>
-                  <IconButton
-                    aria-label="delete user"
-                    onClick={() => handleDeleteClick(user.id)}
-                  >
-                    <Delete color="warning" />
-                  </IconButton>
-                </TableCell>
+                {hasDelete && (
+                  <TableCell>
+                    <IconButton
+                      aria-label="delete user"
+                      onClick={() => handleDelete(user.id)}
+                    >
+                      <Delete color="warning" />
+                    </IconButton>
+                  </TableCell>
+                )}
               </TableRow>
             );
           })}
