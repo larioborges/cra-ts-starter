@@ -31,6 +31,8 @@ const users = [
   },
 ];
 
+const getLatestId = (users) => users.reduce((max, u) => u.id > max ? u.id : max, 0) + 1;
+
 const getFindUserError = (userMatches) => {
   const err = {}
   if (userMatches.length === 0) {
@@ -55,6 +57,35 @@ const getUserById = (users, userId) => {
   };
 };
 
+const getActiveUsers = users => users.filter(u => !u.deleted);
+
+const addUser = (users, newUser) => {
+  newUser.id = getLatestId(users);
+  newUser.createdAt = Date.now();
+  newUser.updatedAt = Date.now();
+  users.push(newUser);
+  return newUser;
+};
+
+const updateUser = (users, updatedUser) => {
+  const { user, responseCode, errorMsg } = getUserById(users, updatedUser.id);
+
+  if (user) {
+    // TODO Lario: update the user in the list
+    users = users.map(u => u.id === updatedUser.id ? {...u, ...updatedUser} : u);
+    return {
+      updatedUser,
+      responseCode,
+      errorMsg,
+    }
+  }
+
+  return {
+    responseCode,
+    errorMsg,
+  };
+};
+
 const deleteUserById = (users, userId) => {
   const { user, responseCode, errorMsg } = getUserById(users, userId);
 
@@ -73,6 +104,9 @@ const deleteUserById = (users, userId) => {
 
 module.exports = {
   users,
+  getActiveUsers,
   getUserById,
   deleteUserById,
+  addUser,
+  updateUser,
 };

@@ -1,7 +1,7 @@
 // const { create, queryByProperty } = require('../db');
 // const { TABLES } = require('@lario/db-models');
 const usersSchema = require('../../schema/users');
-const { users, getUserById, deleteUserById } = require('./data');
+const { users, getUserById, deleteUserById, addUser, getActiveUsers } = require('./data');
 
 async function routes(fastify) {
   // LIST USERS
@@ -12,7 +12,7 @@ async function routes(fastify) {
     },
     async (_, reply) => {
       try {
-        reply.code(200).send(users);
+        reply.code(200).send(getActiveUsers(users));
       } catch (err) {
         fastify.log.error(err);
         reply.code(500).send({ errorMsg: 'Uneqxpected error' });
@@ -38,27 +38,40 @@ async function routes(fastify) {
       },
   );
 
-  // TODO Lario: ADD USER
-  //   fastify.post(
-  //     '',
-  //     {
-  //         schema: usersSchema.create,
-  //     },
-  //     async (request, reply) => {
-  //     },
-  // );
+  // ADD USER
+    fastify.post(
+      '',
+      {
+          schema: usersSchema.create,
+      },
+      async (request, reply) => {
+        try {
+          const newUser = addUser(users, request.body)
+          reply.code(200).send(newUser);
+        } catch (err) {
+          fastify.log.error(err);
+          reply.code(500).send({ errorMsg: 'Uneqxpected error' });
+        }
+      },
+  );
 
   // TODO Lario: UPDATE USER
-  // fastify.put(
-  //     '/signup',
-  //     {
-  //         schema: usersSchema.update,
-  //     },
-  //     async (request, reply) => {
-  //     },
-  // );
+  fastify.put(
+      '',
+      {
+          schema: usersSchema.update,
+      },
+      async (request, reply) => {
+        const { updatedUser, responseCode, errorMsg } = updateUser(users, request.body);
+        if (updatedUser) {
+          reply.code(responseCode).send(updatedUser);
+        } else {
+          reply.code(responseCode).send(errorMsg);
+        }
+      },
+  );
 
-  // TODO Lario: DELETE USER
+  // DELETE USER
   fastify.delete(
       '/:userId',
       {
