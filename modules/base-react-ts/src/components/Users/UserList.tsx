@@ -21,6 +21,7 @@ const UserList: React.FC<{ users?: User[]; handleDelete?: any }> = ({
   handleDelete?: any;
 }): JSX.Element => {
   const hasDelete = useMemo(() => handleDelete != null, [handleDelete]);
+  const noUsersColspan = hasDelete ? 7 : 6;
 
   return (
     <TableContainer component={Paper}>
@@ -76,6 +77,18 @@ const UserList: React.FC<{ users?: User[]; handleDelete?: any }> = ({
               </TableRow>
             );
           })}
+          {users.length === 0 && (
+            <TableRow>
+              <TableCell
+                colSpan={noUsersColspan}
+                align="center"
+              >
+                <p>
+                  <strong>NO USERS</strong>
+                </p>
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
     </TableContainer>

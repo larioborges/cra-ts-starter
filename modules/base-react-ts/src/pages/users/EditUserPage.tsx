@@ -38,7 +38,7 @@ const EditUserPage: React.FC<{}> = (): JSX.Element => {
       <Loader isLoading={isLoading || updateIsLoading} />
       <ErrorMsg
         isError={isError}
-        errorMsg={(error as any)?.data?.errorMsg}
+        errorMsg={(error as any)?.data?.message}
       />
       {user != null && (
         <UserForm

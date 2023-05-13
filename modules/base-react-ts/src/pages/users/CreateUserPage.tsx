@@ -30,7 +30,7 @@ const AddUserPage: React.FC<{}> = (): JSX.Element => {
         <React.Fragment>
           <ErrorMsg
             isError={isError}
-            errorMsg={(error as any)?.data?.errorMsg}
+            errorMsg={(error as any)?.data?.message}
           />
           <UserForm
             handleUserSubmit={createUser}

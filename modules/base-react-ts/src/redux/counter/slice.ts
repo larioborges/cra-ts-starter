@@ -41,7 +41,6 @@ export const decrementAsync = createAsyncThunk(
         fulfillWithValue(ApiStatus.FULFILLED);
       } catch (e: ErrorEvent | any) {
         console.log(e);
-        debugger;
         rejectWithValue(ApiStatus.REJECTED);
       }
     }),

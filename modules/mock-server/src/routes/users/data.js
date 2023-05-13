@@ -73,6 +73,7 @@ const updateUser = (users, updatedUser) => {
   if (user) {
     // TODO Lario: update the user in the list
     users = users.map(u => u.id === updatedUser.id ? {...u, ...updatedUser} : u);
+    updatedUser = users.filter(u => u.id === updatedUser.id)[0];
     return {
       updatedUser,
       responseCode,

@@ -1,7 +1,5 @@
-// const { create, queryByProperty } = require('../db');
-// const { TABLES } = require('@lario/db-models');
 const usersSchema = require('../../schema/users');
-const { users, getUserById, deleteUserById, addUser, getActiveUsers } = require('./data');
+const { users, getUserById, deleteUserById, addUser, getActiveUsers, updateUser } = require('./data');
 
 async function routes(fastify) {
   // LIST USERS
@@ -55,14 +53,22 @@ async function routes(fastify) {
       },
   );
 
-  // TODO Lario: UPDATE USER
+  // Lario: UPDATE USER
   fastify.put(
-      '',
+      '/:userId',
       {
           schema: usersSchema.update,
       },
       async (request, reply) => {
-        const { updatedUser, responseCode, errorMsg } = updateUser(users, request.body);
+        const { userId } = request.params;
+        const { updatedUser, responseCode, errorMsg } = updateUser(
+          users,
+          {
+            id: userId,
+            ...request.body,
+          }
+        );
+        console.log(updatedUser)
         if (updatedUser) {
           reply.code(responseCode).send(updatedUser);
         } else {
