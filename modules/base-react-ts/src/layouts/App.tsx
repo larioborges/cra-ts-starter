@@ -1,4 +1,4 @@
-import Nav from 'components/Nav';
+import Nav from 'components/nav/Nav';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import HeadTags from './HeadTags';

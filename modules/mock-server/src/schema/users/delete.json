@@ -1,4 +1,33 @@
 {
-  "title": "Delete User Endpoint",
-  "Description": "Defines the shape of the delete user endpoint's request and response"
+  "title": "Delete User Endpoint Schema",
+  "Description": "Delete user endpoint's request and response object shape",
+  "response": {
+    "200": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "404": {
+    "type": "object",
+    "required": ["errorMsg"],
+    "properties": {
+      "errorMsg": {
+        "type": "string"
+      }
+    }
+  },
+  "500": {
+    "type": "object",
+    "required": ["errorMsg"],
+    "properties": {
+      "errorMsg": {
+        "type": "string"
+      }
+    }
+  }
 }

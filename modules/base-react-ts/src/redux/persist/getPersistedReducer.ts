@@ -9,8 +9,6 @@ import { PersistReducerConfig } from '../../types/redux/PersistReducerConfig';
 export const getPersistedReducer = (persistReducerConfig: PersistReducerConfig): Reducer => {
   const { reducer, storageKey, encryptionSecret, initialState = {}, expireSeconds = 600 } = persistReducerConfig;
 
-  console.log(expireSeconds);
-
   const transforms = [
     expireReducer(storageKey, {
       // (Optional) Key to be used for the time relative to which store is to be expired

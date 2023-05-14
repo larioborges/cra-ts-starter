@@ -1,10 +1,8 @@
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-console.log(process.env.API_PORT);
-
 const app = express();
-const PORT = 8080;
+const PORT = 8000;
 const HOST = 'localhost';
 
 app.use(
@@ -18,7 +16,7 @@ app.use(
 app.use(
   '/',
   createProxyMiddleware({
-    target: `http://localhost:${process.env.WEB_PORT ? process.env.WEB_PORT : 3000}`,
+    target: `http://localhost:${process.env.WEB_PORT ? process.env.WEB_PORT : 3006}`,
     changeOrigin: true,
   }),
 );

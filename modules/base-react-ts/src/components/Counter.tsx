@@ -1,3 +1,5 @@
+import Add from '@mui/icons-material/Add';
+import Button from '@mui/material/Button';
 import React from 'react';
 import { CounterProps } from 'types';
 
@@ -10,30 +12,36 @@ const Counter: React.FC<CounterProps> = ({
 }): JSX.Element => {
   return (
     <div>
-      <button
-        onClick={onIncrementAsync}
-        className="button"
-      >
-        Increment after 1 second
-      </button>{' '}
-      <button
-        onClick={onDecrementAsync}
-        className="button"
-      >
-        Decrement after 1 second
-      </button>{' '}
-      <button
+      <Button
+        variant="contained"
         onClick={onIncrement}
         className="button"
       >
-        + Increment
-      </button>{' '}
-      <button
+        <Add fontSize="small" />
+        Increment
+      </Button>
+      <Button
+        variant="contained"
         onClick={onDecrement}
         className="button"
       >
         - Decrement
-      </button>
+      </Button>
+      <Button
+        variant="outlined"
+        onClick={onIncrementAsync}
+        className="button"
+      >
+        <Add fontSize="small" />
+        Increment in 1 second
+      </Button>
+      <Button
+        variant="outlined"
+        onClick={onDecrementAsync}
+        className="button"
+      >
+        - Decrement in 1 second
+      </Button>
       <hr />
       <div>Clicked: {value} times</div>
     </div>

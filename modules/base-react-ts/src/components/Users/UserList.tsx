@@ -1,3 +1,6 @@
+import Delete from '@mui/icons-material/Delete';
+import Edit from '@mui/icons-material/Edit';
+import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -5,19 +8,21 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Link from 'components/Link';
-import React from 'react';
-import { User } from 'types/components/User';
+import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { Gender, User } from 'types/user';
 import { formatDate, formatDateTime } from 'utilities/date';
-import { Gender } from '../../types/components/User';
 
-const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
-  userMap,
-  userIds,
+const UserList: React.FC<{ users?: User[]; handleDelete?: any }> = ({
+  users = [],
+  handleDelete,
 }: {
-  userMap: User[];
-  userIds: number[];
+  users?: User[] | undefined;
+  handleDelete?: any;
 }): JSX.Element => {
+  const hasDelete = useMemo(() => handleDelete != null, [handleDelete]);
+  const noUsersColspan = hasDelete ? 7 : 6;
+
   return (
     <TableContainer component={Paper}>
       <Table
@@ -31,14 +36,15 @@ const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
             <TableCell align="right">Gender</TableCell>
             <TableCell align="right">Date Created</TableCell>
             <TableCell align="right">Last Updated</TableCell>
+            <TableCell />
+            {hasDelete && <TableCell />}
           </TableRow>
         </TableHead>
         <TableBody>
-          {userIds?.map(userId => {
-            const user = userMap[userId];
+          {users.map(user => {
             return (
               <TableRow
-                key={userId}
+                key={user.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell
@@ -52,11 +58,37 @@ const UserList: React.FC<{ userMap: any; userIds: number[] }> = ({
                 <TableCell align="right">{formatDate(user.createdAt)}</TableCell>
                 <TableCell align="right">{formatDateTime(user.updatedAt)}</TableCell>
                 <TableCell>
-                  <Link href={`users/edit/${userId != null ? userId : ''}`}>Edit</Link>
+                  <Link to={`edit/${user.id}`}>
+                    <IconButton aria-label="edit user">
+                      <Edit color="primary" />
+                    </IconButton>
+                  </Link>
                 </TableCell>
+                {hasDelete && (
+                  <TableCell>
+                    <IconButton
+                      aria-label="delete user"
+                      onClick={() => handleDelete(user.id)}
+                    >
+                      <Delete color="warning" />
+                    </IconButton>
+                  </TableCell>
+                )}
               </TableRow>
             );
           })}
+          {users.length === 0 && (
+            <TableRow>
+              <TableCell
+                colSpan={noUsersColspan}
+                align="center"
+              >
+                <p>
+                  <strong>NO USERS</strong>
+                </p>
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
     </TableContainer>

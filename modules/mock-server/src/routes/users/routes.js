@@ -1,0 +1,99 @@
+const usersSchema = require('../../schema/users');
+const { users, getUserById, deleteUserById, addUser, getActiveUsers, updateUser } = require('./data');
+
+async function routes(fastify) {
+  // LIST USERS
+  fastify.get(
+    '',
+    {
+      schema: usersSchema.list,
+    },
+    async (_, reply) => {
+      try {
+        reply.code(200).send(getActiveUsers(users));
+      } catch (err) {
+        fastify.log.error(err);
+        reply.code(500).send({ errorMsg: 'Uneqxpected error' });
+      }
+    },
+  );
+
+  // GET USER
+    fastify.get(
+      '/:userId',
+      {
+          schema: usersSchema.get,
+      },
+      async (request, reply) => {
+        const { userId } = request.params;
+        const { user, responseCode, errorMsg } = getUserById(users, userId);
+
+        if (user) {
+          reply.code(responseCode).send(user);
+        } else {
+          reply.code(responseCode).send(errorMsg);
+        }
+      },
+  );
+
+  // ADD USER
+    fastify.post(
+      '',
+      {
+          schema: usersSchema.create,
+      },
+      async (request, reply) => {
+        try {
+          const newUser = addUser(users, request.body)
+          reply.code(200).send(newUser);
+        } catch (err) {
+          fastify.log.error(err);
+          reply.code(500).send({ errorMsg: 'Uneqxpected error' });
+        }
+      },
+  );
+
+  // Lario: UPDATE USER
+  fastify.put(
+      '/:userId',
+      {
+          schema: usersSchema.update,
+      },
+      async (request, reply) => {
+        const { userId } = request.params;
+        const { updatedUser, responseCode, errorMsg } = updateUser(
+          users,
+          {
+            id: userId,
+            ...request.body,
+          }
+        );
+        console.log(updatedUser)
+        if (updatedUser) {
+          reply.code(responseCode).send(updatedUser);
+        } else {
+          reply.code(responseCode).send(errorMsg);
+        }
+      },
+  );
+
+  // DELETE USER
+  fastify.delete(
+      '/:userId',
+      {
+          schema: usersSchema.delete,
+      },
+      async (request, reply) => {
+        const { userId } = request.params;
+        const { deletedUserId, responseCode, errorMsg } = deleteUserById(users, userId);
+
+        if (deletedUserId) {
+          reply.code(responseCode).send(deletedUserId);
+        } else {
+          reply.code(responseCode).send(errorMsg);
+        }
+      },
+  );
+}
+
+module.exports = routes;

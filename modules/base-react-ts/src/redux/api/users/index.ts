@@ -1,4 +1,4 @@
-import { User } from 'types/components/User';
+import { User } from 'types/user';
 import { api } from '../api';
 
 type UsersResponse = User[];
@@ -14,6 +14,12 @@ const userApi = api.injectEndpoints({
         result !== undefined && result.length > 0
           ? [...result.map(({ id }: User) => ({ type: USER_TAG, id })), USER_LIST_TAG]
           : [USER_LIST_TAG],
+      forceRefetch: () => true,
+    }),
+    getUser: build.query<User, string>({
+      query: id => `users/${id}`,
+      providesTags: (result, error, id): any => [{ type: USER_TAG, id }],
+      forceRefetch: () => true,
     }),
     addUser: build.mutation<User, Partial<User>>({
       query: body => ({
@@ -22,10 +28,6 @@ const userApi = api.injectEndpoints({
         body,
       }),
       invalidatesTags: [USER_LIST_TAG] as any,
-    }),
-    getUser: build.query<User, string>({
-      query: id => `users/${id}`,
-      providesTags: (result, error, id): any => [{ type: USER_TAG, id }],
     }),
     updateUser: build.mutation<void | never, Pick<User, 'id'> & Partial<User>>({
       query: ({ id, ...patch }) => ({
@@ -47,8 +49,8 @@ const userApi = api.injectEndpoints({
       },
       invalidatesTags: (result, error, { id }): any => [{ type: USER_TAG, id }],
     }),
-    deleteUser: build.mutation<{ success: boolean; id: number }, number>({
-      query(id) {
+    deleteUser: build.mutation<number, number>({
+      query: id => {
         return {
           url: `users/${id}`,
           method: 'DELETE',

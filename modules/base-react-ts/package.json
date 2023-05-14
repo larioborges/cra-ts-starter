@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.11.1",
     "@reduxjs/toolkit": "^1.9.0",
     "date-fns": "^2.29.3",
@@ -24,7 +25,7 @@
     "web-vitals": "^3.1.0"
   },
   "scripts": {
-    "start:react": "react-scripts start",
+    "start:react": "cross-env PORT=3006 react-scripts start",
     "build:react": "react-scripts build",
     "sync:localenv": "copyfiles --flat ./env/.env.local .",
     "local:develop": "copyfiles --flat --soft ./env/.env.local . && env-cmd -f ./.env.local yarn start:react",
@@ -74,6 +75,7 @@
     "@types/react-helmet": "^6.1.6",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
     "env-cmd": "^10.1.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
